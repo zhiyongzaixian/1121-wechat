@@ -8,12 +8,13 @@ Page({
     msg: '初始化测试数据' 
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log('onLoad')
-
+    console.log('window', window);
     /*
       数据流： 
       React || Vue || 小程序： 单项数据流 ： Model(数据层) ---> View(视图层)
@@ -42,6 +43,21 @@ Page({
     }, 2000)
 
   },
+  // handleParent(){
+  //   console.log('parent');
+  // },
+  // handleChild() {
+  //   console.log('child');
+
+  // },
+
+  toLog(){
+    // 跳转至log页面
+    // 必须使用绝对路径， 手动加上根目录
+    wx.navigateTo({
+      url: '/pages/log/log',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -61,13 +77,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('------ onHide 监听页面隐藏-------')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    console.log('------ onUnload 监听页面卸载-------')
 
   },
 
