@@ -1,0 +1,7 @@
+<view class="indexContainer">
+  <image class="avatarImg" src="/static/images/nvsheng.jpg"></image>
+  <text class="userName">贾静雯</text>
+  <view class="goStudy">
+    <text>开启小程序之旅</text>
+  </view>
+</view>
