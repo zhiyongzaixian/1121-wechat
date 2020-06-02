@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    msg: '初始化测试数据' 
+    msg: '初始化测试数据',
+    userInfo: {
+      
+    }, 
   },
 
 
@@ -13,8 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad')
-    console.log('window', window);
+    // console.log('onLoad')
+    // console.log('window', window);
     /*
       数据流： 
       React || Vue || 小程序： 单项数据流 ： Model(数据层) ---> View(视图层)
@@ -29,18 +32,34 @@ Page({
      2. Vue： this.xxx = value
      3. 小程序： this.setData
     */ 
-    setTimeout(() => {
-      // this代表当前页面的实例对象
-      this.setData({
-        msg: '修改之后的数据'
-      })
-      /*
+    // setTimeout(() => {
+    //   // this代表当前页面的实例对象
+    //   this.setData({
+    //     msg: '修改之后的数据'
+    //   })
+    //   /*
       
-        1. 小程序中setData修改数据是同步的
-        2. 小程序中没有像Vue一样实现数据劫持代理
-      */
-      console.log(this.data.msg);
-    }, 2000)
+    //     1. 小程序中setData修改数据是同步的
+    //     2. 小程序中没有像Vue一样实现数据劫持代理
+    //   */
+    //   console.log(this.data.msg);
+    // }, 2000)
+
+
+
+    // 获取用户信息： wx.getUserInfo()
+    wx.getUserInfo({
+      success: (res) => {
+        console.log(res.userInfo)
+        // 更新userInfo的数据
+        this.setData({
+          userInfo: res.userInfo
+        })
+      },
+      fail: () => {
+        console.log('获取用户信息失败')
+      }
+    })
 
   },
   // handleParent(){
@@ -57,6 +76,18 @@ Page({
     wx.navigateTo({
       url: '/pages/log/log',
     })
+  },
+  // 获取用户信息的回调
+  handleGetUserInfo(data){
+    console.log('handleGetUserInfo')
+    console.log(data)
+    if(data.detail.userInfo){
+      // 用户点击的是允许
+      // 更新userInfo的状态数据
+      this.setData({
+        userInfo: data.detail.userInfo
+      })
+    }
   },
 
   /**
