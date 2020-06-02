@@ -1,17 +1,45 @@
-// pages/index/index.js
+// 注册小程序页面
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    msg: '初始化测试数据' 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+
+    /*
+      数据流： 
+      React || Vue || 小程序： 单项数据流 ： Model(数据层) ---> View(视图层)
+      Vue： 通过指令v-model实现了双向数据绑定
+    */ 
+
+    /*
+    修改状态数据
+     1. React: this.setState()
+        1）自身的钩子函数中(componentDidMount)：异步修改
+        2) 非自身钩子函数中(setTimeout): 同步修改
+     2. Vue： this.xxx = value
+     3. 小程序： this.setData
+    */ 
+    setTimeout(() => {
+      // this代表当前页面的实例对象
+      this.setData({
+        msg: '修改之后的数据'
+      })
+      /*
+      
+        1. 小程序中setData修改数据是同步的
+        2. 小程序中没有像Vue一样实现数据劫持代理
+      */
+      console.log(this.data.msg);
+    }, 2000)
 
   },
 
