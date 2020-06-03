@@ -1,0 +1,2 @@
+/* 引入iconfont样式库 */
+@import "/static/iconfont/iconfont.wxss";
