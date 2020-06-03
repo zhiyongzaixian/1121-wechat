@@ -1,17 +1,17 @@
 <view class="indexContainer">
   <swiper class="navSwiper" indicator-dots indicator-color="ivory" indicator-active-color="#d43c33" circular>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
+    <swiper-item wx:for="{{bannerList}}" wx:for-item="bannerItem" wx:for-index="idx" wx:key="bannerId">
+      <image src="{{bannerItem.pic}}"></image>
     </swiper-item>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/static/images/nvsheng.jpg"></image>
-    </swiper-item>
+    <!--<swiper-item>-->
+      <!--<image src="/static/images/nvsheng.jpg"></image>-->
+    <!--</swiper-item>-->
+    <!--<swiper-item>-->
+      <!--<image src="/static/images/nvsheng.jpg"></image>-->
+    <!--</swiper-item>-->
+    <!--<swiper-item>-->
+      <!--<image src="/static/images/nvsheng.jpg"></image>-->
+    <!--</swiper-item>-->
   </swiper>
 
   <!-- 导航区域 -->

@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    bannerList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: 'http://localhost:3000/banner',
+      data: {
+        type: 2
+      },
+      success: (res) => {
+        console.log(res);
+        // 更新data中bannerList的数据
+        this.setData({
+          bannerList: res.data.banners
+        })
+      },
+      fail: (error) => {
+        console.log('请求失败', error);
+      }
+    })
   },
 
   /**
