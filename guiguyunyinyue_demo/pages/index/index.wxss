@@ -86,3 +86,41 @@
 .topList {
   padding: 0 20rpx;
 }
+
+.topListSwiper {
+  height: 450rpx;
+}
+.swiperItem {
+  background: #fbfbfb;
+  width: 96%;
+  height: 100%;
+}
+
+.topListSwiper .title {
+  font-size: 32rpx;
+  line-height: 80rpx;
+}
+
+.musicItem {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.musicItem .musicImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+
+.musicItem .count {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.musicItem .musicName {
+  height: 100rpx;
+  line-height: 100rpx;
+}
