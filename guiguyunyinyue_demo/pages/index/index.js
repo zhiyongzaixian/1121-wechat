@@ -7,35 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerList: []
+    bannerList: [],
+    recommendList: [], // 推荐数据
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // wx.request({
-    //   url: 'http://localhost:3000/banner',
-    //   data: {
-    //     type: 2
-    //   },
-    //   success: (res) => {
-    //     console.log(res);
-    //     // 更新data中bannerList的数据
-    //     this.setData({
-    //       bannerList: res.data.banners
-    //     })
-    //   },
-    //   fail: (error) => {
-    //     console.log('请求失败', error);
-    //   }
-    // })
-    // 发送ajax请求
+    // 获取banner数据
     let bannerListData = await request('/banner', {type: 2})
     console.log(bannerListData); //
-    
     this.setData({
       bannerList: bannerListData.banners
+    })
+    
+    // 获取推荐数据
+    let recommendListData = await request('/personalized')
+    this.setData({
+      recommendList: recommendListData.result
     })
   },
 

@@ -47,22 +47,11 @@
 .recommendContainer {
   padding: 40rpx 20rpx;
 }
-.recommendContainer .header .title {
-  font-size: 30rpx;
-  color: #666;
-}
-
-.recommendContainer  .header .more {
-  float: right;
-  border: 1rpx solid #333;
-  font-size: 24rpx;
-  padding: 5rpx 10rpx;
-  border-radius: 15rpx;
-}
 
 .navScroll {
   display: flex; /*需要给scroll-view设置enable-flex属性，flex布局才能生效*/
   margin-top: 20rpx;
+  height: 300rpx;
 }
 
 .navScroll .scrollItem {
@@ -89,4 +78,11 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical; /*设置内部子元素的对其方式*/
   -webkit-line-clamp: 2;
+}
+
+
+
+/* 排行榜 */
+.topList {
+  padding: 0 20rpx;
 }

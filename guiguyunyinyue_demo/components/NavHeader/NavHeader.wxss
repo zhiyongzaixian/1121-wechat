@@ -1,0 +1,12 @@
+.header .title {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.header .more {
+  float: right;
+  border: 1rpx solid #333;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 15rpx;
+}
