@@ -22,8 +22,19 @@ export default (url, data={},method='GET') => {
       // url: config.mobileHost + url,
       data,
       method,
+      header: {
+        cookie: (wx.getStorageSync('cookie') || []).toString()
+      },
       success: (res) => {
-        // console.log(res);
+        if(data.isLogin){
+          // 登录请求
+          console.log(res.cookies);
+          wx.setStorage({
+            key: 'cookie',
+            data: res.cookies
+          })
+        }
+        
         resolve(res.data)
       },
       fail: (error) => {

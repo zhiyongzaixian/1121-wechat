@@ -33,8 +33,8 @@
   white-space: nowrap;
 }
 .navItem {
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   margin: 0 20rpx;
 }
 

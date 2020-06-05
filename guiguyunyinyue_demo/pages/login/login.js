@@ -48,7 +48,7 @@ Page({
     }else {
       // 前端验证通过
       // 3. 后端验证
-      let result = await request('/login/cellphone', {phone, password})
+      let result = await request('/login/cellphone', {phone, password, isLogin: true})
       console.log(result);
       /*
       * 状态码：

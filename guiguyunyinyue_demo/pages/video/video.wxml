@@ -8,41 +8,15 @@
 
   <!-- 导航区域 -->
   <scroll-view class="navScroll" enable-flex scroll-x>
-    <view class="navItem active">
-      万有引力
+    <view bindtap="changeNavId" id="{{item.id}}" class="navItem {{navId === item.id?'active': ''}}" wx:for="{{videoGroupList}}" wx:key="id">
+      {{item.name}}
     </view>
-    <view class="navItem">
-      告白
-    </view>
-    <view class="navItem">
-      万有引力
-    </view>
-    <view class="navItem">
-      告白
-    </view>
-    <view class="navItem">
-      万有引力
-    </view>
-    <view class="navItem">
-      告白
-    </view>
-    <view class="navItem">
-      万有引力
-    </view>
-    <view class="navItem">
-      告白
-    </view>
-    <view class="navItem">
-      万有引力
-    </view>
-    <view class="navItem">
-      告白
-    </view>
-    <view class="navItem">
-      万有引力
-    </view>
-    <view class="navItem">
-      告白
+  </scroll-view>
+
+  <!--  内容区 -->
+  <scroll-view scroll-y class="videoList">
+    <view class="videoItem">
+      <!--<video src=""></video>-->
     </view>
   </scroll-view>
 </view>
