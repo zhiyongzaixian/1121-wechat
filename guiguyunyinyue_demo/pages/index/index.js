@@ -31,9 +31,11 @@ Page({
     
     // 获取排行榜的数据
     let idxs = [0, 1, 2, 3]; // 取排行榜数据的参数
+    let num = 4;
     let index = 0; // 指针
     let topListArr = [];
-    while(index < idxs.length){
+    // while(index < idxs.length){
+    while(index < num){
       let topListResult = await request(`/top/list?idx=${index++}`)
       let topListObj = {name: topListResult.playlist.name, tracks: topListResult.playlist.tracks.slice(0, 3)}
       topListArr.push(topListObj)

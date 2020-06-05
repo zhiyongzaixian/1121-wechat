@@ -18,8 +18,8 @@ export default (url, data={},method='GET') => {
   return new Promise((resolve, reject) => {
     // 发送请求
     wx.request({
-      // url: config.host + url,
-      url: config.mobileHost + url,
+      url: config.host + url,
+      // url: config.mobileHost + url,
       data,
       method,
       success: (res) => {
