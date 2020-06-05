@@ -1,11 +1,16 @@
-// pages/personal/personal.js
-Page({
 
+let startY = 0;
+let moveY = 0;
+let moveDistance = 0;
+
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+    coverTransform: '',
+    coverTransition: '',
+    recentPlayList: [], // 用户最近播放记录
   },
 
   /**
@@ -13,6 +18,39 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  
+  handleTouchStart(event){
+    // 1. 获取手指在界面的纵向坐标
+    startY = event.touches[0].clientY;
+    this.setData({
+      coverTransition:  ''
+    })
+  },
+  handleTouchMove(event){
+    moveY = event.touches[0].clientY;
+    moveDistance = moveY - startY;
+    // console.log(moveDistance);
+    
+    if(moveDistance <= 0){
+      return
+    }
+    // 设置向下移动的临界值 80
+    if(moveDistance >= 80){
+      moveDistance = 80;
+    }
+    
+    // 实时更新coverTransform的状态值
+    this.setData({
+      coverTransform: `translateY(${moveDistance}px)`
+    })
+    
+  },
+  handleTouchEnd(){
+    this.setData({
+      coverTransition:  'transform 1s ease',
+      coverTransform: `translateY(0px)`
+    })
   },
 
   /**

@@ -163,3 +163,46 @@
   font-size: 22rpx;
 
 }
+
+
+/* 个人中心列表 */
+.personContent {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 10rpx;
+}
+
+.personContent  .title {
+  font-size: 26rpx;
+}
+
+.scrollView {
+  display: flex;
+  height: 160rpx;
+}
+
+.scrollView image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+
+
+
+.cardList {
+  margin-top: 20rpx;
+
+}
+.cardList .card-item{
+  border-top: 1rpx solid #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 10rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+.cardList .card-item .more {
+  float: right;
+}
