@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c05601b7-8312-4f30-b72b-56879dbd82cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/personal/personal.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/personal/personal.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,72 +29,56 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="14" />
-          <entry key="json" value="6" />
+          <entry key="js" value="15" />
+          <entry key="json" value="9" />
           <entry key="png" value="10" />
-          <entry key="wxml" value="7" />
-          <entry key="wxss" value="9" />
+          <entry key="wxml" value="11" />
+          <entry key="wxss" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="12" />
-          <entry key="HTML" value="7" />
+          <entry key="CSS" value="14" />
+          <entry key="HTML" value="11" />
           <entry key="Image" value="11" />
-          <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="14" />
+          <entry key="JSON" value="9" />
+          <entry key="JavaScript" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1853" />
-          <entry key="json" value="129" />
-          <entry key="wxml" value="1467" />
+          <entry key="js" value="2267" />
+          <entry key="json" value="136" />
+          <entry key="wxml" value="1571" />
           <entry key="wxss" value="1442" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1442" />
-          <entry key="HTML" value="1467" />
-          <entry key="JSON" value="129" />
-          <entry key="JavaScript" value="1853" />
+          <entry key="HTML" value="1571" />
+          <entry key="JSON" value="136" />
+          <entry key="JavaScript" value="2267" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/login/login.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="17" column="46" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxml">
+        <entry file="file://$PROJECT_DIR$/pages/login/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
-              <folding>
-                <element signature="n#view#0;n#view#0;n#!!top" />
-                <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
-                <element signature="n#view#0;n#view#1;n#view#0;n#!!top" />
-                <element signature="n#scroll-view#0;n#view#1;n#view#1;n#view#0;n#!!top" />
-                <element signature="n#view#0;n#view#1;n#view#1;n#view#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/personal/personal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="18" />
+              <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -123,6 +105,11 @@
         <option value="$PROJECT_DIR$/pages/personal/personal.wxss" />
         <option value="$PROJECT_DIR$/pages/personal/personal.js" />
         <option value="$PROJECT_DIR$/pages/personal/personal.wxml" />
+        <option value="$PROJECT_DIR$/pages/login/login.json" />
+        <option value="$PROJECT_DIR$/pages/personal/personal.json" />
+        <option value="$PROJECT_DIR$/pages/login/login.wxss" />
+        <option value="$PROJECT_DIR$/pages/login/login.wxml" />
+        <option value="$PROJECT_DIR$/pages/login/login.js" />
       </list>
     </option>
   </component>
@@ -162,7 +149,7 @@
               <item name="guiguyunyinyue_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="guiguyunyinyue_demo" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -214,18 +201,18 @@
       <workItem from="1591147095497" duration="17030000" />
       <workItem from="1591261828841" duration="68000" />
       <workItem from="1591262361765" duration="1230000" />
-      <workItem from="1591314988250" duration="7071000" />
+      <workItem from="1591314988250" duration="10084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25399000" />
+    <option name="totallyTimeSpent" value="28412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20907739" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20907739" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -376,13 +363,6 @@
     <entry file="file://$PROJECT_DIR$/static/images/tabs/tab-my.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -427,10 +407,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login/login.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/personal/personal.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/personal/personal.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+        <state relative-caret-position="396">
+          <caret line="109" column="9" lean-forward="true" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding>
             <element signature="n#view#0;n#view#0;n#!!top" />
             <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
@@ -438,6 +439,41 @@
             <element signature="n#scroll-view#0;n#view#1;n#view#1;n#view#0;n#!!top" />
             <element signature="n#view#0;n#view#1;n#view#1;n#view#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/备/login/login.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="1" lean-forward="true" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login/login.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/备/login/login.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="15" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login/login.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
         </state>
       </provider>
     </entry>
