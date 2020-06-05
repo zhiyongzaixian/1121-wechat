@@ -1,4 +1,4 @@
-
+import request from '../../utils/request'
 let startY = 0;
 let moveY = 0;
 let moveDistance = 0;
@@ -17,13 +17,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // 判断用户是否登录
     let userInfo = wx.getStorageSync('userInfo');
-    console.log(userInfo);
     if(userInfo){
       this.setData({
         userInfo: JSON.parse(userInfo)
+      })
+      
+      // 获取用户播放记录
+      let recentPlayListData = await request('/user/record', {uid: this.data.userInfo.userId,type: 0})
+      this.setData({
+        recentPlayList: recentPlayListData.allData
       })
     }
   },

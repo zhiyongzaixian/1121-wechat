@@ -59,32 +59,8 @@
       <text class="title">最近播放</text>
       <view wx:if="{{!recentPlayList.length}}">暂时没有播放记录</view>
       <scroll-view wx:else class="scrollView" enable-flex scroll-x>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
-        </view>
-        <view class="scrollItem">
-          <image src="/static/images/nvsheng.jpg"></image>
+        <view class="scrollItem" wx:for="{{recentPlayList}}" wx:key="{{song.id}}">
+          <image src="{{item.song.al.picUrl}}"></image>
         </view>
       </scroll-view>
 

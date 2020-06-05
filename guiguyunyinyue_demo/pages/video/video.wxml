@@ -1,2 +1,48 @@
-<!--pages/video/video.wxml-->
-<text>pages/video/video.wxml</text>
+<view class="videoContainer">
+  <!--头部 -->
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <input type="text" placeholder="光辉岁月" placeholder-class="placeholder"/>
+    <image src="/static/images/logo.png"></image>
+  </view>
+
+  <!-- 导航区域 -->
+  <scroll-view class="navScroll" enable-flex scroll-x>
+    <view class="navItem active">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+    <view class="navItem">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+    <view class="navItem">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+    <view class="navItem">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+    <view class="navItem">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+    <view class="navItem">
+      万有引力
+    </view>
+    <view class="navItem">
+      告白
+    </view>
+  </scroll-view>
+</view>

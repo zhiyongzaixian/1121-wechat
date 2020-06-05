@@ -1,1 +1,43 @@
-/* pages/video/video.wxss */
+
+.videoContainer .header {
+  display: flex;
+  padding: 5rpx 10rpx;
+}
+.videoContainer .header image {
+  width: 60rpx;
+  height: 60rpx;
+
+}
+
+.videoContainer .header input {
+  flex: 2;
+  border: 1rpx solid #eee;
+  height: 60rpx;
+  box-sizing: border-box;
+  margin: 0 10rpx;
+  /*text-align: center;*/
+}
+
+
+.videoContainer .header .placeholder{
+  font-size: 28rpx;
+  color: #d43c33;
+  text-align: center;
+}
+
+
+
+/* 导航区域  */
+.navScroll {
+  display: flex;
+  white-space: nowrap;
+}
+.navItem {
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0 20rpx;
+}
+
+.navItem.active {
+  border-bottom: 1rpx solid #d43c33;
+}
