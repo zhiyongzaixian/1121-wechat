@@ -11,13 +11,21 @@ Page({
     coverTransform: '',
     coverTransition: '',
     recentPlayList: [], // 用户最近播放记录
+    userInfo: {}, // 用户信息对象
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 判断用户是否登录
+    let userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo);
+    if(userInfo){
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+    }
   },
   
   handleTouchStart(event){
@@ -50,6 +58,15 @@ Page({
     this.setData({
       coverTransition:  'transform 1s ease',
       coverTransform: `translateY(0px)`
+    })
+  },
+  // 跳转至登录页面
+  toLogin(){
+    if(this.data.userInfo.nickname){
+      return;
+    }
+    wx.redirectTo({
+      url: '/pages/login/login'
     })
   },
 
