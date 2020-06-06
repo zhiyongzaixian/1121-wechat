@@ -1799,6 +1799,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('onShareAppMessage');
+    // 自定义转发内容
+    return {
+      title: '自定义标题',
+      path: '/pages/video/video',
+      imageUrl: '/static/images/nvsheng.jpg'
+    }
   }
 })
