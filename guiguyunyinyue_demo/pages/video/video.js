@@ -9,6 +9,7 @@ Page({
     navId: '', // 导航的标识id
     videoList: [], // 视频列表数据
     triggered: false, // 标识下拉刷新是否被触发
+    videoId: '',
   },
 
   /**
@@ -1730,17 +1731,25 @@ Page({
   // 视频播放、继续播放的回调
   handlePlay(event){
     // console.log('play');
-    // 当前视频播放的时候需要： 关掉上一个视频
-    // 控制视频播放/暂停/关闭： wx.createVideoContext(video标签的id, 自定义组件的实例)
+    // 当前视频播放的时候需要： 关掉上一个视频，重点是需要找到上个视频的上下文对象
     let {id} = event.currentTarget;
-    this.videoContext && id !== this.vid && this.videoContext.stop();
+    // this.videoContext && id !== this.vid && this.videoContext.stop();
     // if(this.videoContext ){// 上一次上下文对象
     //   if(id !== this.vid){ // 当前视频和之前播放的视频，不是同一个视频
     //     this.videoContext.stop();
     //   }
     // }
-    this.vid = id;
+    // this.vid = id;
+    
+    // 更新videoId
+    this.setData({
+      videoId: id
+    })
+    // 控制视频播放/暂停/关闭： wx.createVideoContext(video标签的id, 自定义组件的实例)
+    // 创建video标签的上下文对象
     this.videoContext = wx.createVideoContext(id);
+    // 播放视频
+    this.videoContext.play();
     // this.videoContext.stop(); // 停止视频播放
   },
 
