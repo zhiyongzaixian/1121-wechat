@@ -7,14 +7,29 @@
   </view>
 
   <!-- 导航区域 -->
-  <scroll-view class="navScroll" enable-flex scroll-x>
-    <view bindtap="changeNavId" id="{{item.id}}" class="navItem {{navId === item.id?'active': ''}}" wx:for="{{videoGroupList}}" wx:key="id">
-      {{item.name}}
+  <scroll-view
+      class="navScroll"
+      enable-flex
+      scroll-x
+      scroll-into-view="{{'scroll' + navId}}"
+      scroll-with-animation
+  >
+    <view bindtap="changeNavId" data-id="{{item.id}}" id="{{'scroll' + item.id}}" class="navItem {{navId === item.id?'active': ''}}" wx:for="{{videoGroupList}}" wx:key="id">
+      <view>
+        {{item.name}}
+      </view>
     </view>
   </scroll-view>
 
   <!--  内容区 -->
-  <scroll-view scroll-y class="videoList">
+  <scroll-view
+      scroll-y
+      class="videoList"
+      refresher-enabled
+      bindrefresherrefresh="handleRefresherRefresh"
+      refresher-triggered="{{triggered}}"
+      bindscrolltolower="handleScrollToLower"
+  >
     <view class="videoItem" wx:for="{{videoList}}" wx:key="{{data.vid}}">
       <video
           src="{{item.data.urlInfo.url}}"

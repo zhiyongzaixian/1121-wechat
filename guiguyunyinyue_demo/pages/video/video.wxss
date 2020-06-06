@@ -46,6 +46,7 @@
 
 /* 视频内容区 */
 .videoList {
+  /*vh vw 视口单位： 1vh = 1%视口高度  1vw = 1%的视口宽度*/
   height: calc(100vh - 190rpx) /*CSS3新特性： calc用于动态计算宽高*/
 }
 
