@@ -7,6 +7,7 @@ Page({
   data: {
     videoGroupList: [], // 视频标签导航数据
     navId: '', // 导航的标识id
+    videoList: [], // 视频列表数据
   },
 
   /**
@@ -25,7 +26,13 @@ Page({
   // 获取视频列表数据的方法
   async getVideoList(navId){
     let videoListData = await request('/video/group', {id: navId});
-    console.log(videoListData);
+    // 关闭loading提示框
+    wx.hideLoading();
+    this.setData({
+      videoList: videoListData.datas
+    })
+    
+    
   },
   
   changeNavId(event){
@@ -33,8 +40,15 @@ Page({
     let navId = event.currentTarget.id>>>0;
     // console.log(navId, typeof navId); // string
     this.setData({
-      navId
+      navId,
+      videoList: []
     })
+  
+    wx.showLoading({
+      title: '正在加载'
+    })
+  
+    this.getVideoList(this.data.navId)
   },
 
   /**

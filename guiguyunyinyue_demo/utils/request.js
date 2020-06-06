@@ -28,7 +28,7 @@ export default (url, data={},method='GET') => {
       success: (res) => {
         if(data.isLogin){
           // 登录请求
-          console.log(res.cookies);
+          // console.log(res.cookies);
           wx.setStorage({
             key: 'cookie',
             data: res.cookies
