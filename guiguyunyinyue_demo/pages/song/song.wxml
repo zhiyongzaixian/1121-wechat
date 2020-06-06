@@ -1,0 +1,9 @@
+<view class="songContainer">
+  <view class="author">Beyond</view>
+  <view class="keng"></view>
+  <image class="needle {{isPlay?'needleRotate': ''}}" src="/static/images/song/needle.png"></image>
+  <view class="discContainer {{isPlay?'discAnimation': ''}}">
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <image class="musicImg" src="/static/images/nvsheng.jpg"></image>
+  </view>
+</view>
