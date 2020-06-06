@@ -36,7 +36,7 @@ Page({
     
     
   },
-  
+  // 点击导航切换navId
   changeNavId(event){
     // 将str转换成number
     let navId = event.currentTarget.dataset.id>>>0;
@@ -1725,6 +1725,23 @@ Page({
     this.setData({
       videoList
     })
+  },
+  
+  // 视频播放、继续播放的回调
+  handlePlay(event){
+    // console.log('play');
+    // 当前视频播放的时候需要： 关掉上一个视频
+    // 控制视频播放/暂停/关闭： wx.createVideoContext(video标签的id, 自定义组件的实例)
+    let {id} = event.currentTarget;
+    this.videoContext && id !== this.vid && this.videoContext.stop();
+    // if(this.videoContext ){// 上一次上下文对象
+    //   if(id !== this.vid){ // 当前视频和之前播放的视频，不是同一个视频
+    //     this.videoContext.stop();
+    //   }
+    // }
+    this.vid = id;
+    this.videoContext = wx.createVideoContext(id);
+    // this.videoContext.stop(); // 停止视频播放
   },
 
   /**

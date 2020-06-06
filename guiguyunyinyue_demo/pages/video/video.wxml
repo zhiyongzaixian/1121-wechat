@@ -34,6 +34,8 @@
       <video
           src="{{item.data.urlInfo.url}}"
           class="common"
+          bindplay="handlePlay"
+          id="{{item.data.vid}}"
       ></video>
 
       <!--备用-->
