@@ -1,4 +1,6 @@
 import request from '../../utils/request'
+const appInstance = getApp();
+
 Page({
 
   /**
@@ -22,11 +24,10 @@ Page({
     // Unexpected end of JSON input 原因： 往JSON.parse || JSON.stringify中放入的数据格式错误
     // let song =  JSON.parse(options.song)
     let musicId = options.musicId;
-    console.log('query参数： ', musicId);
+    // console.log('query参数： ', musicId);
     // jsDOC 根据指定的规范去设置js注释，用来描述函数的参数，类型等信息
     // @todo 发请求获取音乐详情，根据musicId
     let songData = await request('/song/detail', {ids: musicId})
-    console.log(songData);
     this.setData({
       song: songData.songs[0],
       musicId
@@ -36,6 +37,17 @@ Page({
     wx.setNavigationBarTitle({
       title: this.data.song.name
     })
+    
+    
+    
+    
+    // 判断当前页面音乐是佛在播放
+    if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
+      // 当前页面的音乐在播放, 修改播放的状态
+      this.setData({
+        isPlay: true
+      })
+    }
     
   },
   
@@ -57,7 +69,6 @@ Page({
       // @todo 根据音乐musicId获取音乐的播放链接信息并播放音乐
       // 1.1 发请求
       let musicLinkData = await request('/song/url', {id: musicId})
-      console.log(musicLinkData);
       
       this.setData({
         musicLink: musicLinkData.data[0].url
@@ -66,9 +77,14 @@ Page({
       this.backgroundAudioManager = wx.getBackgroundAudioManager();
       this.backgroundAudioManager.src = this.data.musicLink;
       this.backgroundAudioManager.title = this.data.song.name;
+      
+      // 在全局声明当前页面音乐在播放
+      appInstance.globalData.isMusicPlay = true;
+      appInstance.globalData.musicId = musicId;
     }else {
     // 2. 暂停
       this.backgroundAudioManager.pause();
+      appInstance.globalData.isMusicPlay = false;
     }
   },
 
