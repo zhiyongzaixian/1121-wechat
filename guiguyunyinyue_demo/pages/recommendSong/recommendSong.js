@@ -25,6 +25,17 @@ Page({
     })
   },
 
+  // 跳转至song页面
+  toSong(event){
+    // let song = event.currentTarget.dataset.song;
+    // console.log(song, typeof song);
+    let id = event.currentTarget.dataset.id;
+    // 路由跳转的时候可以通过query的形式传参
+    wx.navigateTo({
+      // url: '/pages/song/song?musicId=' + id
+      url: `/pages/song/song?musicId=${id}`
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
