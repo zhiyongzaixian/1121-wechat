@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import request from '../../utils/request'
 const appInstance = getApp();
 
@@ -49,6 +50,31 @@ Page({
       })
     }
     
+    
+    // @todo 监听音乐播放/暂停/停止 用于使得页面的播放状态同实际音乐的播放状态保持一致
+    wx.onBackgroundAudioPlay(() => {
+      this.setData({
+        isPlay: true
+      })
+  
+      appInstance.globalData.isMusicPlay = true;
+    })
+  
+    wx.onBackgroundAudioPause(() => {
+      this.setData({
+        isPlay: false
+      })
+      appInstance.globalData.isMusicPlay = false;
+  
+    })
+  
+    wx.onBackgroundAudioStop(() => {
+      this.setData({
+        isPlay: false
+      })
+      appInstance.globalData.isMusicPlay = false;
+    })
+    
   },
   
   // 点击播放/暂停的回调
@@ -79,7 +105,6 @@ Page({
       this.backgroundAudioManager.title = this.data.song.name;
       
       // 在全局声明当前页面音乐在播放
-      appInstance.globalData.isMusicPlay = true;
       appInstance.globalData.musicId = musicId;
     }else {
     // 2. 暂停
@@ -88,6 +113,15 @@ Page({
     }
   },
 
+  
+  // 切换歌曲
+  switchSong(event){
+    let type = event.currentTarget.id;
+    console.log(type);
+    
+    // @todo 发布消息，将切换歌曲的类型发送给recommendSong页面
+    PubSub.publish('switchType', type);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -99,7 +133,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**

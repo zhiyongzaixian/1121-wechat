@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import request from '../../utils/request'
 Page({
 
@@ -22,6 +23,15 @@ Page({
     let recommendListData = await request('/recommend/songs')
     this.setData({
       recommendList: recommendListData.recommend
+    })
+    
+    
+    
+    
+    // @todo 订阅song页面发布的消息
+    PubSub.subscribe('switchType', (msg, switchType) => {
+      // msg： 消息名称 data： 真正的数据
+      console.log(msg, switchType);
     })
   },
 
