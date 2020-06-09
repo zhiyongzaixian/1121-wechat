@@ -28,19 +28,10 @@ Page({
     // console.log('query参数： ', musicId);
     // jsDOC 根据指定的规范去设置js注释，用来描述函数的参数，类型等信息
     // @todo 发请求获取音乐详情，根据musicId
-    let songData = await request('/song/detail', {ids: musicId})
-    this.setData({
-      song: songData.songs[0],
-      musicId
-    })
-    
-    // 动态修改窗口标题
-    wx.setNavigationBarTitle({
-      title: this.data.song.name
-    })
-    
-    
-    
+  
+    this.getMusicInfoById(musicId);
+    // 生成控制背景音乐播放的实例
+    this.backgroundAudioManager = wx.getBackgroundAudioManager();
     
     // 判断当前页面音乐是佛在播放
     if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
@@ -53,28 +44,45 @@ Page({
     
     // @todo 监听音乐播放/暂停/停止 用于使得页面的播放状态同实际音乐的播放状态保持一致
     wx.onBackgroundAudioPlay(() => {
-      this.setData({
-        isPlay: true
-      })
-  
-      appInstance.globalData.isMusicPlay = true;
+      this.changeMusicPlay(true);
     })
-  
     wx.onBackgroundAudioPause(() => {
-      this.setData({
-        isPlay: false
-      })
-      appInstance.globalData.isMusicPlay = false;
-  
+      this.changeMusicPlay(false);
     })
-  
     wx.onBackgroundAudioStop(() => {
-      this.setData({
-        isPlay: false
-      })
-      appInstance.globalData.isMusicPlay = false;
+      this.changeMusicPlay(false);
     })
     
+    
+    // @todo 订阅 recommend 发送的musicId消息
+    PubSub.subscribe('musicId',  (msg, musicId) => {
+      console.log('recommend发送过来的数据： ', msg, musicId);
+      this.getMusicInfoById(musicId);
+      // 自动播放
+      this.musicControl(true, musicId);
+    })
+    
+  },
+  // 封装修改状态的功能函数
+  changeMusicPlay(isPlay){
+    this.setData({
+      isPlay
+    })
+    appInstance.globalData.isMusicPlay = isPlay;
+  },
+  
+  // 封装根据musicId获取音乐详情的方法
+  async getMusicInfoById(musicId){
+    let songData = await request('/song/detail', {ids: musicId})
+    this.setData({
+      song: songData.songs[0],
+      musicId
+    })
+  
+    // 动态修改窗口标题
+    wx.setNavigationBarTitle({
+      title: this.data.song.name
+    })
   },
   
   // 点击播放/暂停的回调
@@ -99,9 +107,10 @@ Page({
       this.setData({
         musicLink: musicLinkData.data[0].url
       })
-      // 1.2 播放音乐
-      this.backgroundAudioManager = wx.getBackgroundAudioManager();
+      // 1.2 播放音乐 getBackgroundAudioManager全局唯一的对象
+      
       this.backgroundAudioManager.src = this.data.musicLink;
+      // title必填项
       this.backgroundAudioManager.title = this.data.song.name;
       
       // 在全局声明当前页面音乐在播放
@@ -113,20 +122,20 @@ Page({
     }
   },
 
-  
   // 切换歌曲
   switchSong(event){
     let type = event.currentTarget.id;
-    console.log(type);
     
-    // @todo 发布消息，将切换歌曲的类型发送给recommendSong页面
+    // 停止当前音乐的播放
+    this.backgroundAudioManager.stop();
+    // @todo 发布消息，将切换歌曲的类型发送给 recommendSong 页面
     PubSub.publish('switchType', type);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**

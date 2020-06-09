@@ -8,7 +8,8 @@ Page({
   data: {
     day: '',
     month: '',
-    recommendList: []
+    recommendList: [],
+    musicIndex: 0, // 标识音乐在当前列表的下标位置
   },
 
   /**
@@ -26,12 +27,29 @@ Page({
     })
     
     
-    
-    
-    // @todo 订阅song页面发布的消息
+    // @todo 订阅 song 页面发布的消息
     PubSub.subscribe('switchType', (msg, switchType) => {
+      let {musicIndex, recommendList} = this.data;
       // msg： 消息名称 data： 真正的数据
       console.log(msg, switchType);
+      if(switchType === 'pre'){ // 上一首
+        (musicIndex === 0) && (musicIndex = recommendList.length);
+        musicIndex -= 1;
+      }else { // next下一首
+  
+        (musicIndex === recommendList.length - 1) && (musicIndex = -1);
+        musicIndex += 1;
+      }
+      
+      // 更新musicIndex的状态数据
+      this.setData({
+        musicIndex
+      })
+      
+      // 根据计算之后的musicIndex获取对应音乐对象中的 musicId
+      let musicId = recommendList[musicIndex].id;
+      // 将音乐id发送给 song 页面
+      PubSub.publish('musicId', musicId)
     })
   },
 
@@ -39,7 +57,13 @@ Page({
   toSong(event){
     // let song = event.currentTarget.dataset.song;
     // console.log(song, typeof song);
-    let id = event.currentTarget.dataset.id;
+    let {id,  index} = event.currentTarget.dataset;
+    
+    // 修改musicIndex状态数据
+    this.setData({
+      musicIndex: index
+    })
+    
     // 路由跳转的时候可以通过query的形式传参
     wx.navigateTo({
       // url: '/pages/song/song?musicId=' + id
