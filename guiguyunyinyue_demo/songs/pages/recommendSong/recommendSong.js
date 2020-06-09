@@ -1,5 +1,5 @@
 import PubSub from 'pubsub-js'
-import request from '../../utils/request'
+import request from '../../../utils/request'
 Page({
 
   /**
@@ -67,7 +67,7 @@ Page({
     // 路由跳转的时候可以通过query的形式传参
     wx.navigateTo({
       // url: '/pages/song/song?musicId=' + id
-      url: `/pages/song/song?musicId=${id}`
+      url: `/songs/pages/song/song?musicId=${id}`
     })
   },
   /**
