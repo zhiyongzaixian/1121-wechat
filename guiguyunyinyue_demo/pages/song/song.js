@@ -50,6 +50,24 @@ Page({
         currentWidth: this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 450
       })
     });
+  
+    // 监听音乐播放结束
+    this.backgroundAudioManager.onEnded(() => {
+      /*
+      * 需要做的工作：
+      *   1. 切换歌曲至下一首播放
+      *   2. 还原实时进度条的长度位0，还原时候播放的时间为0
+      * */
+      
+      this.setData({
+        currentWidth: 0,
+        currentTimeFormat: '00:00'
+      })
+      // @todo 发布消息，将切换歌曲的类型发送给 recommendSong 页面
+      PubSub.publish('switchType', 'next');
+      
+      
+    })
     
     // 判断当前页面音乐是佛在播放
     if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
@@ -70,6 +88,8 @@ Page({
     wx.onBackgroundAudioStop(() => {
       this.changeMusicPlay(false);
     })
+    
+   
     
     
     // @todo 订阅 recommend 发送的musicId消息
@@ -113,29 +133,36 @@ Page({
       isPlay
     })
     
-    let {musicId} = this.data;
-    this.musicControl(isPlay, musicId);
+    let {musicId, musicLink} = this.data;
+    // musicLink: 1) 空串(未播放)   2) 有值(之前播放音乐的链接，只不过当前的音乐被暂停了)
+    this.musicControl(isPlay, musicId, musicLink);
   },
   
   // 控制音乐播放/暂停
-  async musicControl(isPlay, musicId){
+  async musicControl(isPlay, musicId, musicLink){
     // 1. 播放
     if(isPlay){
-      // @todo 根据音乐musicId获取音乐的播放链接信息并播放音乐
-      // 1.1 发请求
-      let musicLinkData = await request('/song/url', {id: musicId})
-      
-      this.setData({
-        musicLink: musicLinkData.data[0].url
-      })
-      // 1.2 播放音乐 getBackgroundAudioManager全局唯一的对象
-      
-      this.backgroundAudioManager.src = this.data.musicLink;
-      // title必填项
-      this.backgroundAudioManager.title = this.data.song.name;
-      
-      // 在全局声明当前页面音乐在播放
-      appInstance.globalData.musicId = musicId;
+      // 从未播放过
+      if(!musicLink){
+        // @todo 根据音乐musicId获取音乐的播放链接信息并播放音乐
+        // 1.1 发请求
+        let musicLinkData = await request('/song/url', {id: musicId})
+  
+        this.setData({
+          musicLink: musicLinkData.data[0].url
+        })
+        // 1.2 播放音乐 getBackgroundAudioManager全局唯一的对象
+  
+        this.backgroundAudioManager.src = this.data.musicLink;
+        // title必填项
+        this.backgroundAudioManager.title = this.data.song.name;
+  
+        // 在全局声明当前页面音乐在播放
+        appInstance.globalData.musicId = musicId;
+      }else {
+        // 音乐暂停再播放
+        this.backgroundAudioManager.play();
+      }
     }else {
     // 2. 暂停
       this.backgroundAudioManager.pause();
