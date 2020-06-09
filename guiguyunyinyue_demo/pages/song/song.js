@@ -1,4 +1,5 @@
 import PubSub from 'pubsub-js'
+import moment from 'moment'
 import request from '../../utils/request'
 const appInstance = getApp();
 
@@ -12,6 +13,9 @@ Page({
     song: {}, // 音乐的详情信息
     musicId: '', // 音乐的id标识
     musicLink: '', // 当前播放音乐的链接
+    currentTimeFormat: '00:00', // 音乐播放的时候进度时间
+    durationTimeFormat: '00:00', //  当前音乐的总时长
+    currentWidth: 0, // 实时进度条的长度
   },
 
   /**
@@ -32,6 +36,20 @@ Page({
     this.getMusicInfoById(musicId);
     // 生成控制背景音乐播放的实例
     this.backgroundAudioManager = wx.getBackgroundAudioManager();
+    this.backgroundAudioManager.onTimeUpdate(() => {
+      // this.backgroundAudioManager.currentTime: 实时的时间， 单位是s
+      // console.log(this.backgroundAudioManager.currentTime);
+      
+      // 动态计算实时进度条的宽度
+      // let {currentTime, duration} = this.backgroundAudioManager;
+      // let currentWidth = currentTime / duration * 450;
+      // let currentWidth = this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 450;
+      
+      this.setData({
+        currentTimeFormat: moment(this.backgroundAudioManager.currentTime*1000).format('mm:ss'),
+        currentWidth: this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 450
+      })
+    });
     
     // 判断当前页面音乐是佛在播放
     if(appInstance.globalData.isMusicPlay && appInstance.globalData.musicId === musicId){
@@ -73,10 +91,13 @@ Page({
   
   // 封装根据musicId获取音乐详情的方法
   async getMusicInfoById(musicId){
-    let songData = await request('/song/detail', {ids: musicId})
+    let songData = await request('/song/detail', {ids: musicId});
+    // moment格式化的时间单位是ms
+    let durationTimeFormat = moment(songData.songs[0].dt).format('mm:ss');
     this.setData({
       song: songData.songs[0],
-      musicId
+      musicId,
+      durationTimeFormat
     })
   
     // 动态修改窗口标题

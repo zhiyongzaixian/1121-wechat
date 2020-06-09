@@ -7,7 +7,16 @@
     <image class="musicImg" src="{{song.al.picUrl}}"></image>
   </view>
 
-
+  <!-- 进度条控制区域 -->
+  <view class="audioControl">
+    <text>{{currentTimeFormat}}</text>
+    <view class="barControl">
+      <view class="current-time-bar" style="width: {{currentWidth + 'rpx'}}">
+        <view class="ball"></view>
+      </view>
+    </view>
+    <text>{{durationTimeFormat}}</text>
+  </view>
 
   <!-- 底部播放选项区域 -->
   <view class="musicControl">
