@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2adb2b-3870-49a3-966b-b231388db869" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01. mongoose初体验/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../guiguyunyinyue_demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../guiguyunyinyue_demo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/02. model/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03. modules/collections/students.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03. modules/collections/teachers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03. modules/db/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03. modules/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,40 +28,79 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="1" />
+          <entry key="js" value="9" />
           <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="1" />
+          <entry key="JavaScript" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="903" />
+          <entry key="js" value="2190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="903" />
+          <entry key="JavaScript" value="2190" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/01. mongoose初体验/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/02. model/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="330">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
-                <element signature="e#120#199#0" />
-                <element signature="e#218#224#0" />
-                <element signature="e#955#965#0" />
-                <element signature="e#979#989#0" />
+                <element signature="e#113#192#0" />
+                <element signature="e#153#159#0" />
+                <element signature="e#417#699#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03. modules/collections/students.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/03. modules/collections/teachers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03. modules/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03. modules/db/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" selection-end-column="35" />
+              <folding>
+                <element signature="e#124#203#0" />
+                <element signature="e#248#354#0" />
               </folding>
             </state>
           </provider>
@@ -73,6 +115,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/01. mongoose初体验/index.js" />
+        <option value="$PROJECT_DIR$/03. modules/db/index.js" />
+        <option value="$PROJECT_DIR$/03. modules/index.js" />
+        <option value="$PROJECT_DIR$/02. model/index.js" />
+        <option value="$PROJECT_DIR$/03. modules/collections/students.js" />
+        <option value="$PROJECT_DIR$/03. modules/collections/teachers.js" />
       </list>
     </option>
   </component>
@@ -117,6 +164,22 @@
               <item name="mongoose_demo" type="462c0819:PsiDirectoryNode" />
               <item name="01. mongoose初体验" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mongoose_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mongoose_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="02. model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mongoose_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mongoose_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="03. modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mongoose_demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mongoose_demo" type="462c0819:PsiDirectoryNode" />
+              <item name="03. modules" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -130,6 +193,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\13852\Desktop\1121学习资料\code\mongoose_demo\03. modules\collections" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -153,23 +221,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591753895094</updated>
-      <workItem from="1591753896561" duration="2624000" />
+      <workItem from="1591753896561" duration="5962000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2624000" />
+    <option name="totallyTimeSpent" value="5962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16592261" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24330357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.12786885" />
+      <window_info anchor="bottom" id="Terminal" weight="0.5442623" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -199,14 +267,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/01. mongoose初体验/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        <state relative-caret-position="119">
+          <caret line="45" column="15" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="45" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02. model/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
-            <element signature="e#120#199#0" />
-            <element signature="e#218#224#0" />
-            <element signature="e#955#965#0" />
-            <element signature="e#979#989#0" />
+            <element signature="e#113#192#0" />
+            <element signature="e#153#159#0" />
+            <element signature="e#417#699#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03. modules/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03. modules/db/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#124#203#0" />
+            <element signature="e#248#354#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03. modules/collections/students.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03. modules/collections/teachers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="30" />
         </state>
       </provider>
     </entry>
