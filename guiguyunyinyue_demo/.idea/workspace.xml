@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c05601b7-8312-4f30-b72b-56879dbd82cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/static/iconfont/iconfont.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.js" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.json" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/recommendSong/recommendSong.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.js" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/song/song.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.json" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/song/song.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/song/song.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/song/song.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/songs/pages/song/song.wxss" afterDir="false" />
-    </list>
+    <list default="true" id="c05601b7-8312-4f30-b72b-56879dbd82cc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -36,7 +15,7 @@
     <session id="-1982433288">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.16" value="1" />
@@ -83,81 +62,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-              <folding>
-                <element signature="n#!!block;n#window#0;n#!!top" />
-                <element signature="n#!!block;n#tabBar#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="6" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/songs/pages/song/song.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/songs/pages/recommendSong/recommendSong.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-              <folding>
-                <element signature="e#277#1260#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/songs/pages/song/song.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -295,12 +200,12 @@
       <workItem from="1591401376783" duration="20137000" />
       <workItem from="1591574095010" duration="3641000" />
       <workItem from="1591579888617" duration="12043000" />
-      <workItem from="1591659977324" duration="14849000" />
+      <workItem from="1591659977324" duration="15488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91581000" />
+    <option name="totallyTimeSpent" value="92220000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -312,7 +217,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24553572" />
@@ -669,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+        <state relative-caret-position="227">
+          <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
             <element signature="n#!!block;n#window#0;n#!!top" />
             <element signature="n#!!block;n#tabBar#0;n#!!top" />
