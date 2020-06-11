@@ -42,7 +42,11 @@
         return
       }
       // 3. 发请求进行后端验证
-      axios.get('http://localhost:3000/login', {username, password})
+      axios.get('http://localhost:3000/login', {
+        params: {
+          username, password
+        }
+      })
         .then((res) => {
           console.log(res);
         })
