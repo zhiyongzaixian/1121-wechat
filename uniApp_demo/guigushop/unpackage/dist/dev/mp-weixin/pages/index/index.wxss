@@ -11,12 +11,22 @@
   margin: 10rpx 20rpx;
 }
 #indexContainer .header .searchInput {
+  position: relative;
   height: 60rpx;
   background: #eee;
+}
+#indexContainer .header .searchInput input {
+  margin-left: 50rpx;
 }
 #indexContainer .header .searchInput .placeholder {
   font-size: 26rpx;
   text-align: center;
+}
+#indexContainer .header .searchInput .iconfont {
+  position: absolute;
+  left: 10rpx;
+  top: 25%;
+  font-size: 30rpx;
 }
 #indexContainer .header button {
   width: 144rpx;
@@ -26,5 +36,30 @@
   font-size: 24rpx;
   margin: 0 10rpx;
   color: #b4282d;
+}
+#indexContainer .navScroll {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  white-space: nowrap;
+  height: 80rpx;
+}
+#indexContainer .navScroll .scrollItem {
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 140rpx;
+  text-align: center;
+  font-size: 28rpx;
+  margin: 0 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#indexContainer .navScroll .scrollItem.activeClass {
+  border-bottom: 1rpx solid #b4282d;
+}
+.test {
+  font-size: 0;
 }
 
