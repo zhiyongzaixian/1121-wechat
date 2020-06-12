@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca2adb2b-3870-49a3-966b-b231388db869" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/register/collections/students.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/register/db/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/register/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/register/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../express_demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../express_demo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express_demo/04. 案例练习/login/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/login/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express_demo/04. 案例练习/login/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express_demo/04. 案例练习/login/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express_demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express_demo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express_demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express_demo/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,7 +18,7 @@
     <session id="-1327560817">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="2" />
@@ -187,7 +179,7 @@
     <option name="totallyTimeSpent" value="8387000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20461309" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

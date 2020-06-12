@@ -1,0 +1,30 @@
+#indexContainer .header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10rpx 0;
+}
+#indexContainer .header image {
+  width: 140rpx;
+  height: 40rpx;
+  margin: 10rpx 20rpx;
+}
+#indexContainer .header .searchInput {
+  height: 60rpx;
+  background: #eee;
+}
+#indexContainer .header .searchInput .placeholder {
+  font-size: 26rpx;
+  text-align: center;
+}
+#indexContainer .header button {
+  width: 144rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  margin: 0 10rpx;
+  color: #b4282d;
+}
+

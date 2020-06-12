@@ -1,0 +1,1 @@
+<view id="indexContainer"><view class="header"><image src="/static/images/logo.png" mode></image><view class="searchInput"><input type="text" placeholder="搜索商品" placeholder-class="placeholder"/></view><button>登录</button></view></view>
