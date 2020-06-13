@@ -1,5 +1,6 @@
 <template>
 	<view id="indexContainer">
+		<!-- 头部 -->
 		<view class="header">
 			<image src="/static/images/logo.png" mode=""></image>
 			<view class="searchInput">
@@ -8,7 +9,6 @@
 			</view>
 			<button>登录</button>
 		</view>
-	
 		<!-- 导航 -->
 		<scroll-view scroll-x="true" class='navScroll' enable-flex>
 			<view class="scrollItem activeClass">推荐</view>
@@ -69,8 +69,6 @@
 				font-size 24upx
 				margin 0 10upx
 				color #b4282d
-				
-				
 		.navScroll
 			display flex
 			white-space nowrap
