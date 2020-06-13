@@ -38,7 +38,6 @@ router.get('/test', (ctx, next) => {
 
 // 注册返回主页数据的接口
 let indexData = require('./datas/index.json');
-
 router.get('/getIndexData', (ctx, next) => {
 	ctx.body = indexData;
 })

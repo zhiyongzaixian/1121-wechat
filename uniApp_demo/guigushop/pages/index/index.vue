@@ -10,30 +10,39 @@
 			<button>登录</button>
 		</view>
 		<!-- 导航 -->
-		<scroll-view scroll-x="true" class='navScroll' enable-flex>
-			<view class="scrollItem activeClass">推荐</view>
-			<view class="scrollItem">居家生活</view>
-			<view class="scrollItem">美食酒水</view>
-			<view class="scrollItem">服饰鞋包</view>
-			<view class="scrollItem">推荐</view>
-			<view class="scrollItem">居家生活</view>
-			<view class="scrollItem">美食酒水</view>
-			<view class="scrollItem">服饰鞋包</view>
-			<view class="scrollItem">推荐</view>
-			<view class="scrollItem">居家生活</view>
-			<view class="scrollItem">美食酒水</view>
-			<view class="scrollItem">服饰鞋包</view>
-			<view class="scrollItem">推荐</view>
-			<view class="scrollItem">居家生活</view>
-			<view class="scrollItem">美食酒水</view>
-			<view class="scrollItem">服饰鞋包</view>
+		<scroll-view scroll-x="true" class='navScroll' enable-flex v-if="indexData.kingKongModule">
+			<view class="scrollItem activeClass"  v-for="(navItem, index) in indexData.kingKongModule.kingKongList"  :key='index'>{{navItem.text}}</view>
 		</scroll-view>
 	</view>
 
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	export default {
+		data(){
+			return {
+				indexData: {}
+			}
+		},
+		// uni-app中即支持小程序的声明周期函数，也支持Vue的生命周期函数
+		// 尽可能使用Vue的生命周期函数，小程序的生命周期能不用就不用
+		// onLoad(){
+		// 	console.log('onLoad')
+		// 	console.log('页面开始加载')
+		// },	
+		mounted() {
+			// let result = await request('/getIndexData')
+			this.getIndexData()
+		},
+		methods: {
+			async getIndexData(){
+				let result =  await request('/api/getIndexData')
+				if(result){
+					this.indexData = result
+				}
+			}
+		}
 		
 	}
 </script>
