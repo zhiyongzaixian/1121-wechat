@@ -1,0 +1,40 @@
+.cateGorysContainer .cateGoryItem {
+  margin-top: 20rpx;
+}
+.cateGorysContainer .cateGoryItem .cateImg {
+  width: 100%;
+  height: 370rpx;
+}
+.cateGorysContainer .cateGoryItem .scrollView {
+  width: 100%;
+  white-space: nowrap;
+}
+.cateGorysContainer .cateGoryItem .scrollView .scrollItem {
+  display: inline-block;
+  width: 200rpx;
+  margin-left: 20rpx;
+  vertical-align: top;
+}
+.cateGorysContainer .cateGoryItem .scrollView .scrollItem.more {
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 28rpx;
+  background: #eee;
+}
+.cateGorysContainer .cateGoryItem .scrollView .scrollItem image {
+  width: 200rpx;
+  height: 200rpx;
+  background: #eee;
+}
+.cateGorysContainer .cateGoryItem .scrollView .scrollItem text {
+  display: block;
+  font-size: 26rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+

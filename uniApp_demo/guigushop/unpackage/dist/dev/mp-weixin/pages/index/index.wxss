@@ -59,6 +59,9 @@
 #indexContainer .navScroll .scrollItem.activeClass {
   border-bottom: 1rpx solid #b4282d;
 }
+#indexContainer .indexContent {
+  height: calc(100vh - 160rpx);
+}
 .test {
   font-size: 0;
 }

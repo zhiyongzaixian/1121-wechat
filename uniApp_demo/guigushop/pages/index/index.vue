@@ -21,7 +21,10 @@
 		</scroll-view>
 	
 		<!-- 内容区 -->
-		<Recommend></Recommend>
+		<scroll-view scroll-y="true" class='indexContent'>
+			<Recommend></Recommend>
+		</scroll-view>
+		
 	</view>
 
 </template>
@@ -124,6 +127,8 @@
 				&.activeClass
 					border-bottom 1upx solid #B4282D
 				
+		.indexContent
+			height calc(100vh - 160upx)
 .test
 	font-size 0
 </style>

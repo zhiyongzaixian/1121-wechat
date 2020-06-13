@@ -27,12 +27,18 @@
 				<text>{{item.text}}</text>
 			</view>
 		</view>
+		
+		<CateGorys />
 	</view>
 </template>
 
 <script>
 	import {mapActions, mapState} from 'vuex'
+	import CateGorys from '../cateGorys/cateGorys.vue'
 	export default {
+		components: {
+			CateGorys
+		},
 		mounted() {
 			this.getIndexDataAction()
 		},
