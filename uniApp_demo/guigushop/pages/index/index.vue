@@ -27,6 +27,7 @@
 </template>
 
 <script>
+	import {mapActions, mapState} from 'vuex'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
@@ -35,7 +36,6 @@
 		},
 		data(){
 			return {
-				indexData: {},
 				navIndex: 0, // 用来控制导航下边框的显示
 			}
 		},
@@ -46,20 +46,30 @@
 		// 	console.log('页面开始加载')
 		// },	
 		mounted() {
-			// let result = await request('/getIndexData')
-			this.getIndexData()
+			// this.getIndexData()
+			
+			//  分发action
+			this.getIndexDataAction()
 		},
 		methods: {
-			async getIndexData(){
-				// let result =  await request('/api/getIndexData') 用于H5项目代理跨域的时候使用
-				let result =  await request('/getIndexData')
-				if(result){
-					this.indexData = result
-				}
-			},
+			// async getIndexData(){
+			// 	// let result =  await request('/api/getIndexData') 用于H5项目代理跨域的时候使用
+			// 	let result =  await request('/getIndexData')
+			// 	if(result){
+			// 		this.indexData = result
+			// 	}
+			// },
+			...mapActions({
+				getIndexDataAction: 'getIndexDataAction'
+			}),
 			changeNav(navIndex){
 				this.navIndex = navIndex
 			}
+		},
+		computed: {
+			...mapState({
+				indexData: state => state.indexData.indexData
+			})
 		}
 		
 	}

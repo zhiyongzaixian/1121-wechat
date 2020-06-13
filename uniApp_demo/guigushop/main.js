@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 
 // 关闭生产模式下的一些提示
 Vue.config.productionTip = false
@@ -10,7 +11,8 @@ App.mpType = 'app' // app： application
 
 // 生成Vue实例
 const app = new Vue({
-    ...App
+    ...App,
+		store
 })
 
 // 挂载实例 === 原生小程序中App()
