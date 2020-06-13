@@ -184,6 +184,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
     //  分发action
     this.getIndexDataAction();
   },
+  // methods： 1) 事件的回调 2) 自定义方法  --> 通过this.method1()
   methods: _objectSpread({},
 
 
@@ -199,6 +200,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
       this.navIndex = navIndex;
     } }),
 
+  // 组件实例代理的数据源： 1) data 2) 
   computed: _objectSpread({},
   (0, _vuex.mapState)({
     indexData: function indexData(state) {return state.indexData.indexData;} })) };exports.default = _default;

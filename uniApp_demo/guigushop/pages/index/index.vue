@@ -51,6 +51,7 @@
 			//  分发action
 			this.getIndexDataAction()
 		},
+		// methods： 1) 事件的回调 2) 自定义方法  --> 通过this.method1()
 		methods: {
 			// async getIndexData(){
 			// 	// let result =  await request('/api/getIndexData') 用于H5项目代理跨域的时候使用
@@ -66,6 +67,7 @@
 				this.navIndex = navIndex
 			}
 		},
+		// 组件实例代理的数据源： 1) data 2) 
 		computed: {
 			...mapState({
 				indexData: state => state.indexData.indexData

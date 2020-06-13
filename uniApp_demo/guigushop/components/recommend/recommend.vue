@@ -13,13 +13,39 @@
 		</swiper>
 		
 		<!-- policyDescList 三个横向图标 -->
+		<view class="policyDescList">
+			<view class="policyDescItem" v-for='(item, index) in indexData.policyDescList' :key='index'>
+				<image :src="item.icon" mode=""></image>
+				<text>{{item.desc}}</text>
+			</view>
+		</view>
 		
+		<!-- kingKongList 10个小图标的列表 -->
+		<view class="kingKongList" v-if="indexData.kingKongModule">
+			<view class="kingKongItem" v-for="(item, index) in indexData.kingKongModule.kingKongList" :key='index'>
+				<image :src="item.picUrl" mode=""></image>
+				<text>{{item.text}}</text>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
+	import {mapActions, mapState} from 'vuex'
 	export default {
-		
+		mounted() {
+			this.getIndexDataAction()
+		},
+		methods: {
+			...mapActions({
+				getIndexDataAction: 'getIndexDataAction'
+			})
+		},
+		computed: {
+			...mapState({
+				indexData: state => state.indexData.indexData
+			})
+		}
 	}
 </script>
 
@@ -31,5 +57,35 @@
 			image
 				width 100%
 				height 100%
-				
+		.policyDescList
+			display flex
+			.policyDescItem
+				flex 1
+				text-align center
+				image
+					width 32upx
+					height 32upx
+					vertical-align middle
+				text
+					font-size 24upx
+					vertical-align middle
+
+
+		.kingKongList
+			display flex
+			flex-wrap wrap
+			margin 20upx 0
+			.kingKongItem
+				width 20%
+				display flex
+				flex-direction column
+				align-items center
+				image
+					width 110upx
+					height 110upx
+				text
+					font-size 24upx
+					line-height 50upx
+.test
+	font-size 0
 </style>

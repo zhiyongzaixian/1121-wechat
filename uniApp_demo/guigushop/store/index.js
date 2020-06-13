@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex from 'vuex' 
 import indexData from './modules/index.js'
 
 // 课堂问题： Vue.use调用底层做了什么事情
