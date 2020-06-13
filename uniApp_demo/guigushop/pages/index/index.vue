@@ -11,18 +11,32 @@
 		</view>
 		<!-- 导航 -->
 		<scroll-view scroll-x="true" class='navScroll' enable-flex v-if="indexData.kingKongModule">
-			<view class="scrollItem activeClass"  v-for="(navItem, index) in indexData.kingKongModule.kingKongList"  :key='index'>{{navItem.text}}</view>
+			<view class="scrollItem " :class='{activeClass: navIndex === 0}' @click="changeNav(0)">推荐</view>
+			<view class="scrollItem "
+			 :class='{activeClass: navIndex === (index + 1)}'
+				v-for="(navItem, index) in indexData.kingKongModule.kingKongList"
+				:key='index'
+				@click="changeNav((index + 1))"
+				>{{navItem.text}}</view>
 		</scroll-view>
+	
+		<!-- 内容区 -->
+		<Recommend></Recommend>
 	</view>
 
 </template>
 
 <script>
 	import request from '../../utils/request.js'
+	import Recommend from '../../components/recommend/recommend.vue'
 	export default {
+		components: {
+			Recommend
+		},
 		data(){
 			return {
-				indexData: {}
+				indexData: {},
+				navIndex: 0, // 用来控制导航下边框的显示
 			}
 		},
 		// uni-app中即支持小程序的声明周期函数，也支持Vue的生命周期函数
@@ -37,10 +51,14 @@
 		},
 		methods: {
 			async getIndexData(){
-				let result =  await request('/api/getIndexData')
+				// let result =  await request('/api/getIndexData') 用于H5项目代理跨域的时候使用
+				let result =  await request('/getIndexData')
 				if(result){
 					this.indexData = result
 				}
+			},
+			changeNav(navIndex){
+				this.navIndex = navIndex
 			}
 		}
 		

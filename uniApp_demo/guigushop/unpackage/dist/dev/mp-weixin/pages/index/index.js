@@ -151,12 +151,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+
+
+
+
+
+
+
+
+
+var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var Recommend = function Recommend() {return __webpack_require__.e(/*! import() | components/recommend/recommend */ "components/recommend/recommend").then(__webpack_require__.bind(null, /*! ../../components/recommend/recommend.vue */ 30));};var _default =
+
 {
+  components: {
+    Recommend: Recommend },
+
   data: function data() {
     return {
-      indexData: {} };
-
+      indexData: {},
+      navIndex: 0 // 用来控制导航下边框的显示
+    };
   },
   // uni-app中即支持小程序的声明周期函数，也支持Vue的生命周期函数
   // 尽可能使用Vue的生命周期函数，小程序的生命周期能不用就不用
@@ -170,10 +184,15 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/reques
   },
   methods: {
     getIndexData: function () {var _getIndexData = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  (0, _request.default)('/api/getIndexData'));case 2:result = _context.sent;
+
+                  (0, _request.default)('/getIndexData'));case 2:result = _context.sent;
                 if (result) {
                   this.indexData = result;
-                }case 4:case "end":return _context.stop();}}}, _callee, this);}));function getIndexData() {return _getIndexData.apply(this, arguments);}return getIndexData;}() } };exports.default = _default;
+                }case 4:case "end":return _context.stop();}}}, _callee, this);}));function getIndexData() {return _getIndexData.apply(this, arguments);}return getIndexData;}(),
+
+    changeNav: function changeNav(navIndex) {
+      this.navIndex = navIndex;
+    } } };exports.default = _default;
 
 /***/ }),
 /* 21 */

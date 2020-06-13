@@ -8549,7 +8549,7 @@ function normalizeComponent (
 var _default = function _default(url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'GET';
   return new Promise(function (resolve, reject) {
     uni.request({
-      url: url,
+      url: _config.default.host + url,
       data: data,
       method: method,
       success: function success(res) {
