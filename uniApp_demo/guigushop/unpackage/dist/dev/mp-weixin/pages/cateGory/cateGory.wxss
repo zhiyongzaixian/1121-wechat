@@ -50,6 +50,47 @@
 #cateGoryContainer .contentContainer .rightContainer {
   width: 80%;
 }
+#cateGoryContainer .contentContainer .rightContainer .rightScroll {
+  height: calc(100vh - 80rpx);
+}
+#cateGoryContainer .contentContainer .rightContainer .rightScroll .contentList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+#cateGoryContainer .contentContainer .rightContainer .rightScroll .contentList .contentImg {
+  width: 520rpx;
+  height: 190rpx;
+  margin: 20rpx auto;
+}
+#cateGoryContainer .contentContainer .rightContainer .rightScroll .contentList .listItem {
+  width: 33.33%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#cateGoryContainer .contentContainer .rightContainer .rightScroll .contentList .listItem image {
+  width: 90%;
+  height: 142rpx;
+}
+#cateGoryContainer .contentContainer .rightContainer .rightScroll .contentList .listItem text {
+  font-size: 24rpx;
+  text-align: center;
+}
 .test {
   font-size: 0;
 }

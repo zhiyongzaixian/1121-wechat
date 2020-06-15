@@ -14,7 +14,17 @@
 					</view>
 				</scroll-view>
 			</view>
-			<view class="rightContainer"></view>
+			<view class="rightContainer">
+				<scroll-view scroll-y="true" class='rightScroll'>
+					<view class='contentList'>
+						<image class="contentImg" :src="cateGoryObj.imgUrl" mode=""></image>
+						<view class="listItem" v-for='(item, index) in cateGoryObj.subCateList' :key='item.id'>
+							<image :src="item.wapBannerUrl" mode=""></image>
+							<text>{{item.name}}</text>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -39,6 +49,12 @@
 			},
 			changeNavId(navId){
 				this.navId = navId
+			}
+		},
+		computed: {
+			cateGoryObj(){
+				// find查找（根据已知条件返回条件为true的元素）   filter过滤(返回条件为true的元素，返回一个过滤后的子数组)
+				return this.cateGoryList.find(item => item.id === this.navId)
 			}
 		}
 	}
@@ -85,6 +101,30 @@
 							background #BB2C08
 			.rightContainer
 				width 80%
+				.rightScroll
+					height calc(100vh - 80upx)
+					.contentList
+						display flex
+						flex-wrap wrap
+						.contentImg
+							width 520upx
+							height 190upx
+							margin 20upx auto
+						.listItem
+							width 33.33%
+							display flex
+							flex-direction column
+							align-items center
+							image
+								width 90%
+								height 142upx
+							text
+								font-size 24upx
+								text-align center
+						
+					
+				
+				
 				
 .test
 	font-size 0
