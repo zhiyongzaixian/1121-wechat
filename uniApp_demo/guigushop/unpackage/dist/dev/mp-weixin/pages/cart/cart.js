@@ -196,8 +196,8 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
 {
   data: function data() {
     return {
-      userInfo: {} };
-
+      userInfo: {} // 响应式属性
+    };
   },
   beforeMount: function beforeMount() {
     // 判断用户是否登录
@@ -206,6 +206,7 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
     if (userInfo) {
       this.userInfo = JSON.parse(userInfo);
     }
+    this.a = 123; // 非响应式属性
   },
   computed: _objectSpread({},
   (0, _vuex.mapState)({

@@ -1,8 +1,12 @@
 // 购物车的状态数据模块
+import Vue from 'vue'
+import {
+	CHANGECARTLIST
+} from '../mutation-types'
 const state = {
 	cartList: [
 		{
-				"count": 1,
+				"count": 4,
 				"promId": 0,
 				"showPoints": false,
 				"itemTagList": [
@@ -157,8 +161,24 @@ const state = {
 }
 
 const mutations = {
-	
-}
+	[CHANGECARTLIST](state, shopItem){
+		// 情况分析
+		/* 
+			1. 该商品之前没有添加至购物车， 没有count属性， 需要人为设置count属性
+			2. 该商品之前已经添加至购物车，有count属性
+			3. Array.prototype.find() 返回值： 1) 符合条件的元素 2) undefined
+		 */
+		let item = state.cartList.find(item => item.id === shopItem.id)
+		if(item){ // 购物车之前有该商品数据
+			item.count += 1
+			console.log('最新商品的数量： ', item.count)
+		}else { // 之前没有该商品数据
+			// shopItem.count = 1 // 非响应式属性
+			Vue.set(shopItem, 'count', 1) // 响应式属性
+			state.cartList.push(shopItem)
+		}
+	}
+} 
 
 const actions = {
 	

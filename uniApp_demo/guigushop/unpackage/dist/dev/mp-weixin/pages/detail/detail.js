@@ -160,45 +160,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { shopDetail: {} };}, onLoad: function onLoad(option) {// console.log(option)
-    this.shopDetail = JSON.parse(option.shopItem);}, methods: {} };exports.default = _default;
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+{
+  data: function data() {
+    return {
+      shopDetail: {} // 商品详情对象
+    };
+  },
+  onLoad: function onLoad(option) {
+    // console.log(option)
+    this.shopDetail = JSON.parse(option.shopItem);
+  },
+  methods: _objectSpread({},
+  (0, _vuex.mapMutations)({
+    changeCartList: 'changeCartList' }), {
+
+    addShopCart: function addShopCart() {
+      // 触发mutation
+      console.log('添加至购物车');
+      this.changeCartList(this.shopDetail);
+    } }) };exports.default = _default;
 
 /***/ }),
 

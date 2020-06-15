@@ -30,7 +30,7 @@
 		<view class="detailFooter">
 			<image class="service" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/detail-kefu-d10f0489d2.png?imageView&type=webp" mode=""></image>
 			<view class="btn buyNow">立即购买</view>
-			<view @click="addShopCart(shopDetail)" class="btn addShopCart">加入购物车</view>
+			<view  class="btn addShopCart" @click="addShopCart">加入购物车</view>
 		</view>
 	</view>
 </template>
@@ -40,7 +40,7 @@
 	export default {
 		data() {
 			return {
-				shopDetail: {}
+				shopDetail: {} // 商品详情对象
 			}
 		},
 		onLoad(option) {
@@ -48,7 +48,14 @@
 			this.shopDetail = JSON.parse(option.shopItem)
 		},
 		methods: {
-			
+			...mapMutations({
+				changeCartList: 'changeCartList'
+			}),
+			addShopCart(){
+				// 触发mutation
+				console.log('添加至购物车')
+				this.changeCartList(this.shopDetail)
+			}
 		}	
 	}
 </script>

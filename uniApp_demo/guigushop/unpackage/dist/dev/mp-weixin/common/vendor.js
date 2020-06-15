@@ -1505,11 +1505,15 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 购物车的状态数据模块
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 23);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+
 var state = {
   cartList: [
   {
-    "count": 1,
+    "count": 4,
     "promId": 0,
     "showPoints": false,
     "itemTagList": [
@@ -1663,8 +1667,24 @@ var state = {
 
 
 
-var mutations = {};
-
+var mutations = _defineProperty({},
+_mutationTypes.CHANGECARTLIST, function (state, shopItem) {
+  // 情况分析
+  /* 
+  	1. 该商品之前没有添加至购物车， 没有count属性， 需要人为设置count属性
+  	2. 该商品之前已经添加至购物车，有count属性
+  	3. Array.prototype.find() 返回值： 1) 符合条件的元素 2) undefined
+   */
+  var item = state.cartList.find(function (item) {return item.id === shopItem.id;});
+  if (item) {// 购物车之前有该商品数据
+    item.count += 1;
+    console.log('最新商品的数量： ', item.count);
+  } else {// 之前没有该商品数据
+    // shopItem.count = 1 // 非响应式属性
+    _vue.default.set(shopItem, 'count', 1); // 响应式属性
+    state.cartList.push(shopItem);
+  }
+});
 
 
 var actions = {};
@@ -9636,7 +9656,9 @@ var _default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
+Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGECARTLIST = exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
+
+var CHANGECARTLIST = 'changeCartList';exports.CHANGECARTLIST = CHANGECARTLIST;
 
 /***/ }),
 

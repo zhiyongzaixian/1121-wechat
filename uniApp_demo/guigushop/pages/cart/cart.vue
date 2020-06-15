@@ -61,7 +61,7 @@
 	export default {
 		data() {
 			return {
-				userInfo: {}
+				userInfo: {} // 响应式属性
 			};
 		},
 		beforeMount() {
@@ -71,6 +71,7 @@
 			if(userInfo){
 				this.userInfo = JSON.parse(userInfo)
 			}
+			this.a = 123; // 非响应式属性
 		},
 		computed: {
 			...mapState({
