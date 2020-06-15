@@ -6,10 +6,59 @@
 				"navigationBarTitleText": "首页"
 			}
 		}
+	   
+		,{
+				"path" : "pages/cateGory/cateGory",
+				"style" : {
+					"navigationBarTitleText": "分类"
+				}
+		},
+		{
+			"path" : "pages/cart/cart",
+			"style" : {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path" : "pages/personal/personal",
+			"style" : {
+				"navigationBarTitleText": "个人中心"
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "硅谷商城",
 		"navigationBarBackgroundColor": "#BB2C08"
+	},
+	"tabBar": {
+		"color":"#555",
+		"selectedColor":"#D43C33",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath":"/static/images/tabBar/tab-home.png",
+				"selectedIconPath": "/static/images/tabBar/tab-home-current.png"
+			},
+			{
+				"pagePath": "pages/cateGory/cateGory",
+				"text": "分类",
+				"iconPath":"/static/images/tabBar/tab-cate.png",
+				"selectedIconPath": "/static/images/tabBar/tab-cate-current.png"
+			},
+			{
+				"pagePath": "pages/cart/cart",
+				"text": "购物车",
+				"iconPath":"/static/images/tabBar/tab-cart.png",
+				"selectedIconPath": "/static/images/tabBar/tab-cart-current.png"
+			},
+			{
+				"pagePath": "pages/personal/personal",
+				"text": "个人中心",
+				"iconPath":"/static/images/tabBar/tab-my.png",
+				"selectedIconPath": "/static/images/tabBar/tab-my-current.png"
+			}
+		]
 	}
 }

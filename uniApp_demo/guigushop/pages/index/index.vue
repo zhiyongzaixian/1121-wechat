@@ -11,18 +11,19 @@
 		</view>
 		<!-- 导航 -->
 		<scroll-view scroll-x="true" class='navScroll' enable-flex v-if="indexData.kingKongModule">
-			<view class="scrollItem " :class='{activeClass: navIndex === 0}' @click="changeNav(0)">推荐</view>
+			<view class="scrollItem " :class='{activeClass: navIndex === 0}' @click="changeNav(0, 0)">推荐</view>
 			<view class="scrollItem "
 			 :class='{activeClass: navIndex === (index + 1)}'
 				v-for="(navItem, index) in indexData.kingKongModule.kingKongList"
 				:key='index'
-				@click="changeNav((index + 1))"
+				@click="changeNav((index + 1), navItem.L1Id)"
 				>{{navItem.text}}</view>
 		</scroll-view>
 	
 		<!-- 内容区 -->
 		<scroll-view scroll-y="true" class='indexContent'>
-			<Recommend></Recommend>
+			<Recommend v-if='navId===0'></Recommend>
+			<CateList v-if='navId !== 0' :navId='navId'></CateList>
 		</scroll-view>
 		
 	</view>
@@ -33,13 +34,15 @@
 	import {mapActions, mapState} from 'vuex'
 	import request from '../../utils/request.js'
 	import Recommend from '../../components/recommend/recommend.vue'
+	import CateList from '../../components/cateList/cateList.vue'
 	export default {
 		components: {
-			Recommend
+			Recommend, CateList
 		},
 		data(){
 			return {
 				navIndex: 0, // 用来控制导航下边框的显示
+				navId: 0, // 导航id
 			}
 		},
 		// uni-app中即支持小程序的声明周期函数，也支持Vue的生命周期函数
@@ -66,8 +69,9 @@
 			...mapActions({
 				getIndexDataAction: 'getIndexDataAction'
 			}),
-			changeNav(navIndex){
+			changeNav(navIndex, navId){
 				this.navIndex = navIndex
+				this.navId = navId
 			}
 		},
 		// 组件实例代理的数据源： 1) data 2) 
