@@ -13,7 +13,7 @@
 		props: ['shopList'],
 		methods: {
 			toDetail(shopItem){
-				wx.navigateTo({
+				uni.navigateTo({
 					url: '/pages/detail/detail?shopItem=' + JSON.stringify(shopItem)
 				})
 			}

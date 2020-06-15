@@ -11,10 +11,10 @@
 		
 		<!-- 内容区 -->
 		<scroll-view class="content" scroll-y="true">
-			<image class="detailImg" src="https://yanxuan-item.nosdn.127.net/c2eeb1b872af1b8efc179a7515aacdaa.png" mode=""></image>
+			<image class="detailImg" :src="shopDetail.listPicUrl" mode=""></image>
 			<view class="tag">暖冬特惠</view>
 			<text class="price">￥ 335</text>
-			<view class="info">男式色拉姆内衣套装</view>
+			<view class="info">{{shopDetail.name}}</view>
 			
 			
 			<!-- 准备内容 -->
@@ -30,7 +30,7 @@
 		<view class="detailFooter">
 			<image class="service" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/detail-kefu-d10f0489d2.png?imageView&type=webp" mode=""></image>
 			<view class="btn buyNow">立即购买</view>
-			<view  class="btn addShopCart">加入购物车</view>
+			<view @click="addShopCart(shopDetail)" class="btn addShopCart">加入购物车</view>
 		</view>
 	</view>
 </template>
@@ -47,12 +47,9 @@
 			// console.log(option)
 			this.shopDetail = JSON.parse(option.shopItem)
 		},
-		computed: {
-			
-		},
 		methods: {
 			
-		}
+		}	
 	}
 </script>
 

@@ -3,79 +3,59 @@
 		<view class="title">购物车</view>
 		
 		<!-- 没有登录 -->
-		<!-- block: 用来包裹多个元素，包裹的多个元素通常表示是一个整体， 无任何语义化，不会在页面渲染该标签 -->
-		<block v-if='!userInfo.nickName'>
-			<view class="header">
-				<text>30天无忧退货</text>
-				<text>48小时快速退货</text>
-				<text>满99元免邮费</text>
-			</view>
-			<view class="contentContainer">
-				<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
-				<button @click="toLogin">登录</button>
-				<view class="addMore">去添加点什么吧</view>
-			</view>
-		</block>
+		<!-- <view class="header">
+			<text>30天无忧退货</text>
+			<text>48小时快速退货</text>
+			<text>满99元免邮费</text>
+		</view>
+		<view class="contentContainer">
+			<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
+			<button @click="toLogin">登录</button>
+			<view class="addMore">去添加点什么吧</view>
+		</view> -->
 		
-		<block v-else>
-			<!-- 登录以后的情况 -->
-			<!-- 购物车列表 -->
-			<view class="cartList">
-				<view class="cartItem" v-for="(shopItem, index) in cartList" :key='shopItem.id'>
-					<text
-					 class='iconfont icon-xuanzhong selected'
-					 ></text>
-					<view class="shopItem">
-						<image class="shopImg" :src="shopItem.listPicUrl" mode=""></image>
-						<view class="shopInfo">
-							<text>{{shopItem.name}}</text>
-							<text class="price">￥{{shopItem.retailPrice}}</text>
-						</view>
-					</view>
-					<!-- 控制数量 -->
-					<view class="countCtrl">
-						<text class="add" > + </text>
-						<text class="count"> {{shopItem.count}} </text>
-						<text class="del"> - </text>
+		<!-- 登录以后的情况 -->
+		<!-- 购物车列表 -->
+		<view class="cartList">
+			<view class="cartItem">
+				<text
+				 class='iconfont icon-xuanzhong selected'
+				 ></text>
+				<view class="shopItem">
+					<image class="shopImg" src="https://yanxuan-item.nosdn.127.net/c2eeb1b872af1b8efc179a7515aacdaa.png" mode=""></image>
+					<view class="shopInfo">
+						<text>男式色拉姆内衣套装</text>
+						<text class="price">￥258</text>
 					</view>
 				</view>
-			</view>
-			<!-- 底部下单 -->
-			<view class="cartFooter">
-				<text class='iconfont icon-xuanzhong selected' ></text>
-				<text class="allSelected">已选 2</text>
-				<view class="right">
-					<text class="totalPrice">合计: ￥1000</text>
-					<text class="preOrder">下单</text>
+				<!-- 控制数量 -->
+				<view class="countCtrl">
+					<text class="add" > + </text>
+					<text class="count"> 1 </text>
+					<text class="del"> - </text>
 				</view>
 			</view>
-			
-		</block>
+		</view>
+		<!-- 底部下单 -->
+		<view class="cartFooter">
+			<text class='iconfont icon-xuanzhong selected' ></text>
+			<text class="allSelected">已选 2</text>
+			<view class="right">
+				<text class="totalPrice">合计: ￥1000</text>
+				<text class="preOrder">下单</text>
+			</view>
+		</view>
 		
 		
 	</view>
 </template>
 
 <script>
-	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
-				userInfo: {}
+				
 			};
-		},
-		beforeMount() {
-			// 判断用户是否登录
-			let userInfo = uni.getStorageSync('userInfo')
-			console.log('结果： ', userInfo)
-			if(userInfo){
-				this.userInfo = JSON.parse(userInfo)
-			}
-		},
-		computed: {
-			...mapState({
-				cartList: state => state.cart.cartList
-			})
 		}
 	}
 </script>
