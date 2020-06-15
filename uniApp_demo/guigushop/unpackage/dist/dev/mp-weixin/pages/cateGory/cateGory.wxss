@@ -20,11 +20,11 @@
 /* border-box 怪异盒模型： 计算宽高的时候： content + padding + border  标准盒模型: content-box*/
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-top: 1rpx solid #333 ;
+  border-top: 1rpx solid #eee ;
 }
 #cateGoryContainer .contentContainer .leftContainer {
   width: 20%;
-  border-right: 1rpx solid #333;
+  border-right: 1rpx solid #eee;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }

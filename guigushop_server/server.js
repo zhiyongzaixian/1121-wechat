@@ -47,6 +47,12 @@ router.get('/getindexCateList', async (ctx, next) => {
 });
 
 
+// 分类页的数据
+let cateGoryDatas = require('./datas/categoryDatas.json')
+router.get('/getCateGoryDatas', async (ctx, next) => {
+	ctx.body = cateGoryDatas;
+});
+
 // 注册返回主页数据的接口
 let indexData = require('./datas/index.json');
 router.get('/getIndexData', (ctx, next) => {
