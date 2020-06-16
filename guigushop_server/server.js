@@ -1,5 +1,8 @@
 let Koa = require('koa');
 let KoaRouter = require('koa-router');
+let jwt = require('jsonwebtoken');
+let Fly=require("flyio/src/node")
+let fly=new Fly;
 
 /* 
  koa框架： 用来搭建服务器，作用同express一样
@@ -64,7 +67,7 @@ router.get('/getIndexData', (ctx, next) => {
 
 
 // 获取用户唯一标识openId的接口
-router.get('/getOpenId', (ctx, next) => {
+router.get('/getOpenId', async (ctx, next) => {
 	//  1. 获取请求参数code
 	let code = ctx.query.code;
 	// 2. 整合数据对接微信的服务器的接口
@@ -73,8 +76,28 @@ router.get('/getOpenId', (ctx, next) => {
 	// 3. 发送请求对接微信服务器
 	let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_type=authorization_code`;
 	
-	ctx.body = '测试数据'
+	
+	let result = await fly.get(url)
+	console.log(result.data, typeof result.data)
+	
+	let userInfoObj = JSON.parse(result.data); 
+	// openid: "oWYEK4ySgEw5F5WqzdjfXqqe_MNo"
+	// session_key: "iXZ/tO6X6qPPRuo/h500JQ=="
+	
+	// 获取openId 进行加密处理
+	let openId = userInfoObj.openid
+	
+	// 对openId进行加密，使用jwt
+	let token = jwt.sign(openId, 'atguigu');
+	console.log(token)
+	// 测试token解密
+	let testResult =  jwt.verify(token, 'atguigu')
+	console.log('加密数据： ', testResult)
+	console.log('加密之前： ', openId)
+	ctx.body = token
 })
+
+
 
 
 

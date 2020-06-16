@@ -108,6 +108,10 @@
 					// 2. 将code发请求交给服务器
 					let result = await request('/getOpenId', {code})
 					console.log(result)
+					wx.setStorage({
+						key: 'token',
+						data: result
+					})
 				}
 			})
 			

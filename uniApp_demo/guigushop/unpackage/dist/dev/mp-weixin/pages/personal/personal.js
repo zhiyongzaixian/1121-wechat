@@ -231,7 +231,11 @@ module.exports = {
                   code = res.code;
                   // 2. 将code发请求交给服务器
                   _context.next = 3;return (0, _request.default)('/getOpenId', { code: code });case 3:result = _context.sent;
-                  console.log(result);case 5:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+                  console.log(result);
+                  wx.setStorage({
+                    key: 'token',
+                    data: result });case 6:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });
+
 
 
 
