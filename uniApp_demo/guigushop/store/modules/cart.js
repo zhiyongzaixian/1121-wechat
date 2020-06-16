@@ -2,12 +2,14 @@
 import Vue from 'vue'
 import {
 	CHANGECARTLIST,
-	CHANGECOUNTMUTAION
+	CHANGECOUNTMUTAION,
+	CHANGESELECTEDMUTATION
 } from '../mutation-types'
 const state = {
 	cartList: [
 		{
 				"count": 1,
+				"selected": true,
 				"promId": 0,
 				"showPoints": false,
 				"itemTagList": [
@@ -70,7 +72,7 @@ const state = {
 				"zcSearchFlag": false,
 				"name": "极地探险都不怕，女式地表强温鹅绒羽绒服",
 				"appExclusiveFlag": false,
-				"itemType": 1,
+				"itemType": 1, 
 				"listPicUrl": "https://yanxuan-item.nosdn.127.net/de6493e42fe69d483df949871585c13e.png",
 				"pointsPrice": 0,
 				"simpleDesc": "90%白鹅绒，充沛保暖之选",
@@ -84,6 +86,7 @@ const state = {
 			},
 		{
 					"count": 1,
+					"selected": false,
 			    "promId": 0,
 			    "showPoints": false,
 			    "itemTagList": [
@@ -162,6 +165,7 @@ const state = {
 }
 
 const mutations = {
+	// 添加至购物车
 	[CHANGECARTLIST](state, shopItem){
 		// 情况分析
 		/* 
@@ -183,10 +187,12 @@ const mutations = {
 			// 	}
 			// })
 			Vue.set(shopItem, 'count', 1) // 响应式属性
+			Vue.set(shopItem, 'selected', true);
 			state.cartList.push(shopItem)
 		} 
 	},
 	// 注意： mutation的参数有2个： 1) state 2) 交给mutation的数据，如果同时需要交给mutation多条数据，需要整合成对象的形式
+	// 修改购物车商品的数量
 	[CHANGECOUNTMUTAION](state, {isAdd, index}){
 		console.log('mutation: ', isAdd, index)
 		if(isAdd){ // 累加
@@ -201,16 +207,50 @@ const mutations = {
 			}
 			
 		}
+	},
+	[CHANGESELECTEDMUTATION](state, {selected, index}){
+		state.cartList[index].selected = selected
 	}
 } 
 
 const actions = {
-	
+	// 注意： action参数有2个： 1) store对象 2) 调用action的是传给action的参数数据，如果有多条数据，需要整合成对象
+	testAction({commit}, {a, b}){
+		console.log('action: ', a, b)
+	}
 }
 
 
 const getters = {
-	
+	isAllSelected(state){
+		/* 
+			思路分析： 
+				1. 遍历cartList数组
+				2. 根据所有商品的是否选中状态来决定全选的状态
+				3. 一旦有一个商品是未选中，全选的状态就是全不选
+				4. 所有的商品个体的状态是选中的话，全选的状态就是全部选中
+				5. 最终计算的结果是一个布尔值： 全选/全不选 ---> true/false
+		 */
+		
+		// forEach()
+		// let result = true; // 默认为全选
+		// state.cartList.forEach(item => !item.selected && (result = false))
+		// return result;
+		
+		// every() 
+		/* 
+		 1. 返回值：布尔值
+		 2. 作用：根据指定的条件对每一个元素进行测试，只要有一个元素没有通过测试，返回值就是false
+		 */
+		
+		/* 
+			扩展： some()
+			1. 返回值：布尔值
+			2. 作用： 只要有一个元素满足测试条件，返回值就是true，相反的所有的元素都不满足指定的条件，返回值才是false
+		 */
+		// return state.cartList.some(item => item.selected)
+		return state.cartList.every(item => item.selected)
+	}
 }
 
 

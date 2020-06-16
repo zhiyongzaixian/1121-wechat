@@ -24,7 +24,9 @@
 				<view class="cartList">
 					<view class="cartItem" v-for="(shopItem, index) in cartList" :key='shopItem.id'>
 						<text
-						 class='iconfont icon-xuanzhong selected'
+						 class='iconfont icon-xuanzhong '
+						 :class="{selected: shopItem.selected}"
+						 @click="changeSelected(!shopItem.selected, index)"
 						 ></text>
 						<view class="shopItem">
 							<image class="shopImg" :src="shopItem.listPicUrl" mode=""></image>
@@ -43,7 +45,7 @@
 				</view>
 				<!-- 底部下单 -->
 				<view class="cartFooter">
-					<text class='iconfont icon-xuanzhong selected' ></text>
+					<text class='iconfont icon-xuanzhong ' :class="{selected: isAllSelected}" @click="changeAllSelected"></text>
 					<text class="allSelected">已选 2</text>
 					<view class="right">
 						<text class="totalPrice">合计: ￥1000</text>
@@ -64,7 +66,7 @@
 
 <script>
 	
-	import {mapState, mapMutations} from 'vuex'
+	import {mapState, mapMutations, mapGetters} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -83,15 +85,29 @@
 		computed: {
 			...mapState({
 				cartList: state => state.cart.cartList
-			})
+			}),
+			...mapGetters(['isAllSelected'])
 		},
 		methods: {
 			...mapMutations({
-				changeCountMutation: 'changeCountMutation'
+				changeCountMutation: 'changeCountMutation',
+				"changeSelectedMutation": 'changeSelectedMutation'
 			}),
 			changeCount(isAdd, index){
 				this.changeCountMutation({isAdd, index})
+			},
+			// 修改商品是否选中的标识
+			changeSelected(selected, index){
+				this.changeSelectedMutation({selected, index})
+			},
+			// 控制全选/全不选的状态: 必须要知道点击之前的全选/全不选的状态
+			changeAllSelected(){
+				
 			}
+		},
+		mounted() {
+			// 测试action参数
+			this.$store.dispatch('testAction', {a:'aaa', b: 'bbb'})
 		}
 	}
 </script>

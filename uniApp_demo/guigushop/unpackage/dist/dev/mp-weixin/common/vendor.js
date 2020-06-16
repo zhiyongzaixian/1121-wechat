@@ -10398,11 +10398,13 @@ var _default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGECOUNTMUTAION = exports.CHANGECARTLIST = exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
+Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGESELECTEDMUTATION = exports.CHANGECOUNTMUTAION = exports.CHANGECARTLIST = exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
 
 var CHANGECARTLIST = 'changeCartList';exports.CHANGECARTLIST = CHANGECARTLIST;
 
 var CHANGECOUNTMUTAION = 'changeCountMutation';exports.CHANGECOUNTMUTAION = CHANGECOUNTMUTAION;
+
+var CHANGESELECTEDMUTATION = 'changeSelectedMutation';exports.CHANGESELECTEDMUTATION = CHANGESELECTEDMUTATION;
 
 /***/ }),
 /* 24 */
@@ -10419,10 +10421,12 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 23);var _mutat
 
 
 
+
 var state = {
   cartList: [
   {
     "count": 1,
+    "selected": true,
     "promId": 0,
     "showPoints": false,
     "itemTagList": [
@@ -10499,6 +10503,7 @@ var state = {
 
   {
     "count": 1,
+    "selected": false,
     "promId": 0,
     "showPoints": false,
     "itemTagList": [
@@ -10577,6 +10582,7 @@ var state = {
 
 
 var mutations = (_mutations = {}, _defineProperty(_mutations,
+
 _mutationTypes.CHANGECARTLIST, function (state, shopItem) {
   // 情况分析
   /* 
@@ -10598,9 +10604,11 @@ _mutationTypes.CHANGECARTLIST, function (state, shopItem) {
     // 	}
     // })
     _vue.default.set(shopItem, 'count', 1); // 响应式属性
+    _vue.default.set(shopItem, 'selected', true);
     state.cartList.push(shopItem);
   }
 }), _defineProperty(_mutations,
+
 
 _mutationTypes.CHANGECOUNTMUTAION, function (state, _ref) {var isAdd = _ref.isAdd,index = _ref.index;
   console.log('mutation: ', isAdd, index);
@@ -10616,16 +10624,50 @@ _mutationTypes.CHANGECOUNTMUTAION, function (state, _ref) {var isAdd = _ref.isAd
     }
 
   }
+}), _defineProperty(_mutations,
+_mutationTypes.CHANGESELECTEDMUTATION, function (state, _ref2) {var selected = _ref2.selected,index = _ref2.index;
+  state.cartList[index].selected = selected;
 }), _mutations);
 
 
-var actions = {};
+var actions = {
+  // 注意： action参数有2个： 1) store对象 2) 调用action的是传给action的参数数据，如果有多条数据，需要整合成对象
+  testAction: function testAction(_ref3, _ref4) {var commit = _ref3.commit;var a = _ref4.a,b = _ref4.b;
+    console.log('action: ', a, b);
+  } };
 
 
 
+var getters = {
+  isAllSelected: function isAllSelected(state) {
+    /* 
+                                                	思路分析： 
+                                                		1. 遍历cartList数组
+                                                		2. 根据所有商品的是否选中状态来决定全选的状态
+                                                		3. 一旦有一个商品是未选中，全选的状态就是全不选
+                                                		4. 所有的商品个体的状态是选中的话，全选的状态就是全部选中
+                                                		5. 最终计算的结果是一个布尔值： 全选/全不选 ---> true/false
+                                                 */
 
-var getters = {};var _default =
+    // forEach()
+    // let result = true; // 默认为全选
+    // state.cartList.forEach(item => !item.selected && (result = false))
+    // return result;
 
+    // every() 
+    /* 
+     1. 返回值：布尔值
+     2. 作用：根据指定的条件对每一个元素进行测试，只要有一个元素没有通过测试，返回值就是false
+     */
+
+    /* 
+        	扩展： some()
+        	1. 返回值：布尔值
+        	2. 作用： 只要有一个元素满足测试条件，返回值就是true，相反的所有的元素都不满足指定的条件，返回值才是false
+         */
+    // return state.cartList.some(item => item.selected)
+    return state.cartList.every(function (item) {return item.selected;});
+  } };var _default =
 
 
 
