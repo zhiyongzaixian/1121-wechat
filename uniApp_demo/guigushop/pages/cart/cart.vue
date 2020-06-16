@@ -19,37 +19,43 @@
 		
 		<block v-else>
 			<!-- 登录以后的情况 -->
-			<!-- 购物车列表 -->
-			<view class="cartList">
-				<view class="cartItem" v-for="(shopItem, index) in cartList" :key='shopItem.id'>
-					<text
-					 class='iconfont icon-xuanzhong selected'
-					 ></text>
-					<view class="shopItem">
-						<image class="shopImg" :src="shopItem.listPicUrl" mode=""></image>
-						<view class="shopInfo">
-							<text>{{shopItem.name}}</text>
-							<text class="price">￥{{shopItem.retailPrice}}</text>
+			<block v-if="cartList.length">
+				<!-- 购物车列表 -->
+				<view class="cartList">
+					<view class="cartItem" v-for="(shopItem, index) in cartList" :key='shopItem.id'>
+						<text
+						 class='iconfont icon-xuanzhong selected'
+						 ></text>
+						<view class="shopItem">
+							<image class="shopImg" :src="shopItem.listPicUrl" mode=""></image>
+							<view class="shopInfo">
+								<text>{{shopItem.name}}</text>
+								<text class="price">￥{{shopItem.retailPrice}}</text>
+							</view>
+						</view>
+						<!-- 控制数量 -->
+						<view class="countCtrl">
+							<text class="add" @click="changeCount(true, index)"> + </text>
+							<text class="count"> {{shopItem.count}} </text>
+							<text class="del" @click='changeCount(false, index)'> - </text>
 						</view>
 					</view>
-					<!-- 控制数量 -->
-					<view class="countCtrl">
-						<text class="add" > + </text>
-						<text class="count"> {{shopItem.count}} </text>
-						<text class="del"> - </text>
+				</view>
+				<!-- 底部下单 -->
+				<view class="cartFooter">
+					<text class='iconfont icon-xuanzhong selected' ></text>
+					<text class="allSelected">已选 2</text>
+					<view class="right">
+						<text class="totalPrice">合计: ￥1000</text>
+						<text class="preOrder">下单</text>
 					</view>
 				</view>
-			</view>
-			<!-- 底部下单 -->
-			<view class="cartFooter">
-				<text class='iconfont icon-xuanzhong selected' ></text>
-				<text class="allSelected">已选 2</text>
-				<view class="right">
-					<text class="totalPrice">合计: ￥1000</text>
-					<text class="preOrder">下单</text>
-				</view>
-			</view>
+			</block>
 			
+			<block v-else>
+				<image class="cartImg" src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png?imageView&type=webp" mode=""></image>
+				<view class="hint">购物车还是空的，赶紧去购物吧</view>
+			</block>
 		</block>
 		
 		
@@ -57,7 +63,8 @@
 </template>
 
 <script>
-	import {mapState} from 'vuex'
+	
+	import {mapState, mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -67,7 +74,7 @@
 		beforeMount() {
 			// 判断用户是否登录
 			let userInfo = uni.getStorageSync('userInfo')
-			console.log('结果： ', userInfo)
+			// console.log('结果： ', userInfo)
 			if(userInfo){
 				this.userInfo = JSON.parse(userInfo)
 			}
@@ -77,6 +84,14 @@
 			...mapState({
 				cartList: state => state.cart.cartList
 			})
+		},
+		methods: {
+			...mapMutations({
+				changeCountMutation: 'changeCountMutation'
+			}),
+			changeCount(isAdd, index){
+				this.changeCountMutation({isAdd, index})
+			}
 		}
 	}
 </script>

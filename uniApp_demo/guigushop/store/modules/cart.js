@@ -1,12 +1,13 @@
 // 购物车的状态数据模块
 import Vue from 'vue'
 import {
-	CHANGECARTLIST
+	CHANGECARTLIST,
+	CHANGECOUNTMUTAION
 } from '../mutation-types'
 const state = {
 	cartList: [
 		{
-				"count": 4,
+				"count": 1,
 				"promId": 0,
 				"showPoints": false,
 				"itemTagList": [
@@ -167,6 +168,7 @@ const mutations = {
 			1. 该商品之前没有添加至购物车， 没有count属性， 需要人为设置count属性
 			2. 该商品之前已经添加至购物车，有count属性
 			3. Array.prototype.find() 返回值： 1) 符合条件的元素 2) undefined
+			4. Array.find() 对象Array自身的方法   Array.prototype.find Array实例的方法
 		 */
 		let item = state.cartList.find(item => item.id === shopItem.id)
 		if(item){ // 购物车之前有该商品数据
@@ -174,8 +176,30 @@ const mutations = {
 			console.log('最新商品的数量： ', item.count)
 		}else { // 之前没有该商品数据
 			// shopItem.count = 1 // 非响应式属性
+			// Object.defineProperty(obj, {
+			// 	count: {
+			// 		get(){},
+			// 		set(){}
+			// 	}
+			// })
 			Vue.set(shopItem, 'count', 1) // 响应式属性
 			state.cartList.push(shopItem)
+		} 
+	},
+	// 注意： mutation的参数有2个： 1) state 2) 交给mutation的数据，如果同时需要交给mutation多条数据，需要整合成对象的形式
+	[CHANGECOUNTMUTAION](state, {isAdd, index}){
+		console.log('mutation: ', isAdd, index)
+		if(isAdd){ // 累加
+			state.cartList[index].count += 1
+		}else {// 累减
+			if(state.cartList[index].count > 1){
+				state.cartList[index].count -= 1
+			}else {
+				// state.cartList[index].count = 0
+				// splice(startIndex, count) 对数组进行CRUD操作的
+				state.cartList.splice(index, 1)
+			}
+			
 		}
 	}
 } 
