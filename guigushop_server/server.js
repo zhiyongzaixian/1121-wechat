@@ -63,6 +63,20 @@ router.get('/getIndexData', (ctx, next) => {
 })
 
 
+// 获取用户唯一标识openId的接口
+router.get('/getOpenId', (ctx, next) => {
+	//  1. 获取请求参数code
+	let code = ctx.query.code;
+	// 2. 整合数据对接微信的服务器的接口
+	let appId = 'wx810e8b1fde386fde'
+	let appSecret = '654c697e90ad6e95dc344893a6879fe1'
+	// 3. 发送请求对接微信服务器
+	let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_type=authorization_code`;
+	
+	ctx.body = '测试数据'
+})
+
+
 
 // 2. 监听端口
 app.listen('3001', (err) => {

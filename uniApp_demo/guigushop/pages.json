@@ -1,6 +1,13 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path" : "pages/personal/personal",
+			"style" : {
+				"navigationBarTitleText": "个人中心",
+				"navigationBarBackgroundColor": "#EED7B5"
+			}
+		},
+		{
 			"path" : "pages/cart/cart",
 			"style" : {
 				"navigationBarTitleText": "购物车"
@@ -27,14 +34,6 @@
 		
 		
 		{
-			"path" : "pages/personal/personal",
-			"style" : {
-				"navigationBarTitleText": "个人中心",
-				"navigationBarBackgroundColor": "#EED7B5"
-			}
-		}
-		
-        ,{
             "path" : "pages/detail/detail",
             "style" : {}
         }

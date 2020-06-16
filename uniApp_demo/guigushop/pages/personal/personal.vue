@@ -45,6 +45,7 @@
 </template>
 
 <script>
+	import request from '../../utils/request.js'
 	module.exports = {
 		data(){
 			return {
@@ -95,7 +96,23 @@
 				]
 			}
 		},
-		mounted(){
+		// onLoad(options){
+		// 	console.log(options.userInfo)
+		// },
+		 mounted(){
+			// 获取用户唯一标识
+			wx.login({
+				success:async (res) => {
+					// 1. 获取临时登录凭证： code
+					let code = res.code;
+					// 2. 将code发请求交给服务器
+					let result = await request('/getOpenId', {code})
+					console.log(result)
+				}
+			})
+			
+			
+			// this.$mp.query.userInfo： 等同于onLoad中的options，用于获取路由传参的数据
 			if(this.$mp.query.userInfo){
 				let userInfo = JSON.parse(this.$mp.query.userInfo)
 				this.userInfo = userInfo
