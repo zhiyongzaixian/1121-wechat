@@ -3,7 +3,8 @@ import Vue from 'vue'
 import {
 	CHANGECARTLIST,
 	CHANGECOUNTMUTAION,
-	CHANGESELECTEDMUTATION
+	CHANGESELECTEDMUTATION,
+	CHANGEALLSELECTEDMUTATION
 } from '../mutation-types'
 const state = {
 	cartList: [
@@ -210,6 +211,9 @@ const mutations = {
 	},
 	[CHANGESELECTEDMUTATION](state, {selected, index}){
 		state.cartList[index].selected = selected
+	},
+	[CHANGEALLSELECTEDMUTATION](state, selected){
+		state.cartList.forEach(item => item.selected = selected)
 	}
 } 
 
@@ -219,7 +223,6 @@ const actions = {
 		console.log('action: ', a, b)
 	}
 }
-
 
 const getters = {
 	isAllSelected(state){
@@ -249,7 +252,30 @@ const getters = {
 			2. 作用： 只要有一个元素满足测试条件，返回值就是true，相反的所有的元素都不满足指定的条件，返回值才是false
 		 */
 		// return state.cartList.some(item => item.selected)
+		// 判断购物车数组的商品是否 都是 选中状态
 		return state.cartList.every(item => item.selected)
+	},
+	/* 
+		reduce() 累加器
+		1. 作用： 可以对数组的元素进行累加操作
+		2. 语法：arr.reduce((pre, next) => {}, 累加的起始值)
+		3. 如果不传第二个参数(累加的起始值), pre的值就是从数组的第一项开始， next就是第二项  --> 第一次遍历的时候
+		4. 如果传第二个参数(累加的起始值)， pre的值就是累加的起始值，next就是数的第一项--> 第一次遍历的时候
+		5. 再次循环遍历的时候pre是上一次累加的结果，next是数组的下一项个体
+		
+	 */
+	
+	// 总数量
+	totalCount(state){
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected?shopItem.count:0;
+		}, 0)
+	},
+	// 总价格
+	totalPrice(){
+		return state.cartList.reduce((pre, shopItem) => {
+			return pre += shopItem.selected ? shopItem.count * shopItem.retailPrice : 0;
+		}, 0)
 	}
 }
 

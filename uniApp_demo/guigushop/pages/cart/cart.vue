@@ -45,10 +45,10 @@
 				</view>
 				<!-- 底部下单 -->
 				<view class="cartFooter">
-					<text class='iconfont icon-xuanzhong ' :class="{selected: isAllSelected}" @click="changeAllSelected"></text>
-					<text class="allSelected">已选 2</text>
+					<text class='iconfont icon-xuanzhong ' :class="{selected: isAllSelected}" @click="changeAllSelected(!isAllSelected)"></text>
+					<text class="allSelected">已选 {{totalCount}}</text>
 					<view class="right">
-						<text class="totalPrice">合计: ￥1000</text>
+						<text class="totalPrice">合计: ￥{{totalPrice}}</text>
 						<text class="preOrder">下单</text>
 					</view>
 				</view>
@@ -86,12 +86,13 @@
 			...mapState({
 				cartList: state => state.cart.cartList
 			}),
-			...mapGetters(['isAllSelected'])
+			...mapGetters(['isAllSelected', 'totalCount', 'totalPrice'])
 		},
 		methods: {
 			...mapMutations({
 				changeCountMutation: 'changeCountMutation',
-				"changeSelectedMutation": 'changeSelectedMutation'
+				changeSelectedMutation: 'changeSelectedMutation',
+				changeAllSelectedMutation: 'changeAllSelectedMutation'
 			}),
 			changeCount(isAdd, index){
 				this.changeCountMutation({isAdd, index})
@@ -101,8 +102,9 @@
 				this.changeSelectedMutation({selected, index})
 			},
 			// 控制全选/全不选的状态: 必须要知道点击之前的全选/全不选的状态
-			changeAllSelected(){
-				
+			changeAllSelected(selected){
+				// 将需要修改全选/全不选的状态交给mutation
+				this.changeAllSelectedMutation(selected)
 			}
 		},
 		mounted() {

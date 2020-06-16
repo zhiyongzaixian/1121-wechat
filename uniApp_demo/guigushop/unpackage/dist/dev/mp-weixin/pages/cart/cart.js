@@ -210,12 +210,13 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
   (0, _vuex.mapState)({
     cartList: function cartList(state) {return state.cart.cartList;} }),
 
-  (0, _vuex.mapGetters)(['isAllSelected'])),
+  (0, _vuex.mapGetters)(['isAllSelected', 'totalCount', 'totalPrice'])),
 
   methods: _objectSpread({},
   (0, _vuex.mapMutations)({
     changeCountMutation: 'changeCountMutation',
-    "changeSelectedMutation": 'changeSelectedMutation' }), {
+    changeSelectedMutation: 'changeSelectedMutation',
+    changeAllSelectedMutation: 'changeAllSelectedMutation' }), {
 
     changeCount: function changeCount(isAdd, index) {
       this.changeCountMutation({ isAdd: isAdd, index: index });
@@ -225,8 +226,9 @@ var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {
       this.changeSelectedMutation({ selected: selected, index: index });
     },
     // 控制全选/全不选的状态: 必须要知道点击之前的全选/全不选的状态
-    changeAllSelected: function changeAllSelected() {
-
+    changeAllSelected: function changeAllSelected(selected) {
+      // 将需要修改全选/全不选的状态交给mutation
+      this.changeAllSelectedMutation(selected);
     } }),
 
   mounted: function mounted() {

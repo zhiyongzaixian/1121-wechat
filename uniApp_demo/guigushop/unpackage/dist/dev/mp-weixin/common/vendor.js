@@ -10398,13 +10398,15 @@ var _default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGESELECTEDMUTATION = exports.CHANGECOUNTMUTAION = exports.CHANGECARTLIST = exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
+Object.defineProperty(exports, "__esModule", { value: true });exports.CHANGEALLSELECTEDMUTATION = exports.CHANGESELECTEDMUTATION = exports.CHANGECOUNTMUTAION = exports.CHANGECARTLIST = exports.CHANGEINDEXDATAMUTATION = void 0;var CHANGEINDEXDATAMUTATION = 'changeIndexDataMutation';exports.CHANGEINDEXDATAMUTATION = CHANGEINDEXDATAMUTATION;
 
 var CHANGECARTLIST = 'changeCartList';exports.CHANGECARTLIST = CHANGECARTLIST;
 
 var CHANGECOUNTMUTAION = 'changeCountMutation';exports.CHANGECOUNTMUTAION = CHANGECOUNTMUTAION;
 
 var CHANGESELECTEDMUTATION = 'changeSelectedMutation';exports.CHANGESELECTEDMUTATION = CHANGESELECTEDMUTATION;
+
+var CHANGEALLSELECTEDMUTATION = 'changeAllSelectedMutation';exports.CHANGEALLSELECTEDMUTATION = CHANGEALLSELECTEDMUTATION;
 
 /***/ }),
 /* 24 */
@@ -10418,6 +10420,7 @@ var CHANGESELECTEDMUTATION = 'changeSelectedMutation';exports.CHANGESELECTEDMUTA
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 23);var _mutations;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
 
 
 
@@ -10627,6 +10630,9 @@ _mutationTypes.CHANGECOUNTMUTAION, function (state, _ref) {var isAdd = _ref.isAd
 }), _defineProperty(_mutations,
 _mutationTypes.CHANGESELECTEDMUTATION, function (state, _ref2) {var selected = _ref2.selected,index = _ref2.index;
   state.cartList[index].selected = selected;
+}), _defineProperty(_mutations,
+_mutationTypes.CHANGEALLSELECTEDMUTATION, function (state, selected) {
+  state.cartList.forEach(function (item) {return item.selected = selected;});
 }), _mutations);
 
 
@@ -10635,7 +10641,6 @@ var actions = {
   testAction: function testAction(_ref3, _ref4) {var commit = _ref3.commit;var a = _ref4.a,b = _ref4.b;
     console.log('action: ', a, b);
   } };
-
 
 
 var getters = {
@@ -10666,7 +10671,30 @@ var getters = {
         	2. 作用： 只要有一个元素满足测试条件，返回值就是true，相反的所有的元素都不满足指定的条件，返回值才是false
          */
     // return state.cartList.some(item => item.selected)
+    // 判断购物车数组的商品是否 都是 选中状态
     return state.cartList.every(function (item) {return item.selected;});
+  },
+  /* 
+     	reduce() 累加器
+     	1. 作用： 可以对数组的元素进行累加操作
+     	2. 语法：arr.reduce((pre, next) => {}, 累加的起始值)
+     	3. 如果不传第二个参数(累加的起始值), pre的值就是从数组的第一项开始， next就是第二项  --> 第一次遍历的时候
+     	4. 如果传第二个参数(累加的起始值)， pre的值就是累加的起始值，next就是数的第一项--> 第一次遍历的时候
+     	5. 再次循环遍历的时候pre是上一次累加的结果，next是数组的下一项个体
+     	
+      */
+
+  // 总数量
+  totalCount: function totalCount(state) {
+    return state.cartList.reduce(function (pre, shopItem) {
+      return pre += shopItem.selected ? shopItem.count : 0;
+    }, 0);
+  },
+  // 总价格
+  totalPrice: function totalPrice() {
+    return state.cartList.reduce(function (pre, shopItem) {
+      return pre += shopItem.selected ? shopItem.count * shopItem.retailPrice : 0;
+    }, 0);
   } };var _default =
 
 
